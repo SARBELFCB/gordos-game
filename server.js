@@ -292,5 +292,5 @@ function endVoting(code) {
   broadcastAll(code, { type: 'VOTING_END', payload: result });
 }
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 server.listen(PORT, () => console.log(`✅ Gordos Game corriendo en http://localhost:${PORT}`));
