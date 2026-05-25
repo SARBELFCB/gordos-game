@@ -1,4 +1,3 @@
-cat > /mnt/user-data/outputs/gordos-server/server.js << 'EOF'
 const express = require('express');
 const http = require('http');
 const WebSocket = require('ws');
@@ -385,5 +384,3 @@ function endVoting(code) {
 
 const PORT = process.env.PORT || 8080;
 server.listen(PORT, () => console.log(`✅ Gordos Game en http://localhost:${PORT}`));
-EOF
-echo "Done server.js"
