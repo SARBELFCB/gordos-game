@@ -13,176 +13,230 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;background:ra
 .screen{display:none;padding:24px 20px;max-width:460px;margin:0 auto;min-height:100vh;flex-direction:column;align-items:center;justify-content:center}
 .screen.active{display:flex}
 h1{font-family:'Boogaloo',cursive;font-size:2.8rem;color:var(--purple2);text-align:center;line-height:1;margin-bottom:4px;text-shadow:0 0 40px rgba(167,139,250,.5)}
-h2{font-size:1.25rem;font-weight:800;margin-bottom:18px;text-align:center;color:var(--text)}
-h3{font-size:.9rem;font-weight:700;margin-bottom:10px;color:var(--purple2);text-transform:uppercase;letter-spacing:1px}
-.subtitle{font-size:.82rem;color:var(--muted);margin-bottom:32px;text-align:center}
-input,textarea,select{width:100%;padding:12px 16px;border-radius:12px;border:1.5px solid var(--border);background:var(--card);color:var(--text);font-size:.95rem;font-family:'Nunito',sans-serif;outline:none;margin-bottom:12px;transition:border-color .2s}
+h2{font-size:1.2rem;font-weight:800;margin-bottom:18px;text-align:center;color:var(--text)}
+h3{font-size:.85rem;font-weight:700;margin-bottom:8px;color:var(--purple2);text-transform:uppercase;letter-spacing:1px}
+.subtitle{font-size:.82rem;color:var(--muted);margin-bottom:28px;text-align:center}
+input,textarea,select{width:100%;padding:12px 16px;border-radius:12px;border:1.5px solid var(--border);background:var(--card);color:var(--text);font-size:.95rem;font-family:'Nunito',sans-serif;outline:none;margin-bottom:10px;transition:border-color .2s}
 input:focus,textarea:focus,select:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(139,92,246,.15)}
-.btn{width:100%;padding:13px 16px;border-radius:14px;border:none;cursor:pointer;font-size:.95rem;font-weight:700;font-family:'Nunito',sans-serif;margin-bottom:10px;transition:all .15s}
+.btn{width:100%;padding:12px 16px;border-radius:14px;border:none;cursor:pointer;font-size:.92rem;font-weight:700;font-family:'Nunito',sans-serif;margin-bottom:8px;transition:all .15s}
 .btn-primary{background:linear-gradient(135deg,#7c3aed,#6d28d9);color:#fff;box-shadow:0 4px 20px rgba(124,58,237,.4)}
 .btn-primary:hover{transform:translateY(-1px)}
+.btn-primary:active{transform:translateY(0);opacity:.9}
 .btn-secondary{background:var(--card);color:var(--purple2);border:1.5px solid var(--border)}
 .btn-secondary:hover{border-color:var(--purple);background:var(--card2)}
 .btn-danger{background:rgba(239,68,68,.15);color:#fca5a5;border:1.5px solid rgba(239,68,68,.3)}
 .btn-green{background:rgba(16,185,129,.15);color:#6ee7b7;border:1.5px solid rgba(16,185,129,.3)}
-.btn-sm{padding:8px 16px;width:auto;font-size:.82rem;border-radius:10px}
-.card{background:var(--card);border:1.5px solid var(--border);border-radius:18px;padding:18px;margin-bottom:14px;width:100%}
-.code-box{font-family:'Boogaloo',cursive;font-size:3rem;letter-spacing:10px;color:var(--purple2);text-align:center;padding:18px;background:var(--card2);border-radius:14px;margin-bottom:10px;border:1.5px solid var(--border)}
-.player-item{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--card2);border-radius:12px;margin-bottom:8px;width:100%;border:1.5px solid var(--border)}
-.player-name{flex:1;font-size:.9rem;font-weight:600}
-.level-badge{font-size:.7rem;font-weight:800;background:rgba(245,158,11,.2);color:var(--gold);border:1px solid rgba(245,158,11,.3);padding:2px 8px;border-radius:999px}
-.xp-bar{width:100%;height:4px;background:var(--card2);border-radius:2px;margin-top:4px;overflow:hidden}
+.btn-gold{background:rgba(245,158,11,.15);color:var(--gold);border:1.5px solid rgba(245,158,11,.3)}
+.btn-sm{padding:7px 14px;width:auto;font-size:.8rem;border-radius:10px;margin-bottom:0}
+.card{background:var(--card);border:1.5px solid var(--border);border-radius:18px;padding:16px;margin-bottom:12px;width:100%}
+.code-box{font-family:'Boogaloo',cursive;font-size:3rem;letter-spacing:10px;color:var(--purple2);text-align:center;padding:16px;background:var(--card2);border-radius:14px;margin-bottom:10px;border:1.5px solid var(--border)}
+.player-item{display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(--card2);border-radius:12px;margin-bottom:7px;width:100%;border:1.5px solid var(--border)}
+.player-name{flex:1;font-size:.88rem;font-weight:600}
+.lv-badge{font-size:.68rem;font-weight:800;background:rgba(245,158,11,.2);color:var(--gold);border:1px solid rgba(245,158,11,.3);padding:2px 7px;border-radius:999px}
+.xp-bar{width:100%;height:4px;background:var(--card2);border-radius:2px;margin-top:3px;overflow:hidden}
 .xp-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--pink));border-radius:2px;transition:width .5s}
-
 /* CHAT */
-.chat-wrap{width:100%;position:relative;margin-bottom:12px}
-.chat-box{width:100%;background:var(--card2);border-radius:14px;padding:12px;height:200px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;border:1.5px solid var(--border);scroll-behavior:smooth;transition:opacity .7s ease}
+.chat-wrap{width:100%;position:relative;margin-bottom:10px}
+.chat-box{width:100%;background:var(--card2);border-radius:14px;padding:10px;height:195px;overflow-y:auto;display:flex;flex-direction:column;gap:7px;border:1.5px solid var(--border);scroll-behavior:smooth;transition:opacity .6s ease}
 .chat-box.fading{opacity:0;pointer-events:none}
-.vote-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(13,13,26,.92);border-radius:14px;border:1.5px solid var(--purple);opacity:0;pointer-events:none;transition:opacity .7s ease}
+.vote-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(13,13,26,.93);border-radius:14px;border:2px solid var(--purple);opacity:0;pointer-events:none;transition:opacity .6s ease;padding:16px;text-align:center}
 .vote-overlay.show{opacity:1;pointer-events:all}
-.vote-overlay .vot-title{font-family:'Boogaloo',cursive;font-size:2.5rem;color:var(--purple2);text-shadow:0 0 30px rgba(167,139,250,.6);margin-bottom:6px}
-.vote-overlay .vot-sub{font-size:.85rem;color:var(--muted)}
-
-.chat-msg{padding:9px 13px;border-radius:12px;max-width:88%;font-size:.875rem}
+.vote-overlay .vot-big{font-family:'Boogaloo',cursive;font-size:2.4rem;color:var(--purple2);text-shadow:0 0 30px rgba(167,139,250,.6);margin-bottom:4px}
+.vote-overlay .vot-sub{font-size:.82rem;color:var(--muted);margin-bottom:12px}
+.chat-msg{padding:8px 12px;border-radius:12px;max-width:88%;font-size:.85rem}
 .chat-msg.me{background:linear-gradient(135deg,#4c1d95,#3b0764);align-self:flex-end;border-bottom-right-radius:4px}
 .chat-msg.other{background:var(--card);align-self:flex-start;border-bottom-left-radius:4px;border:1px solid var(--border)}
-.chat-msg.system{background:transparent;align-self:center;color:var(--muted);font-size:.78rem;border:none;max-width:100%;padding:2px 0;text-align:center}
-.chat-msg .sender{font-size:.7rem;color:var(--purple2);margin-bottom:3px;font-weight:700;display:flex;align-items:center;gap:4px}
-.chat-msg .translated{font-size:.68rem;color:var(--muted);margin-top:3px;font-style:italic}
-
-.vote-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;margin-bottom:16px}
-.vote-btn{padding:14px 10px;border-radius:14px;border:2px solid var(--border);background:var(--card);cursor:pointer;text-align:center;transition:all .2s}
+.chat-msg.system{background:transparent;align-self:center;color:var(--muted);font-size:.75rem;border:none;max-width:100%;padding:1px 0;text-align:center}
+.chat-msg .sender{font-size:.68rem;color:var(--purple2);margin-bottom:2px;font-weight:700;display:flex;align-items:center;gap:4px}
+.chat-msg .translated{font-size:.65rem;color:var(--muted);margin-top:2px;font-style:italic}
+/* VOTE */
+.vote-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;width:100%;margin-bottom:14px}
+.vote-btn{padding:12px 8px;border-radius:14px;border:2px solid var(--border);background:var(--card);cursor:pointer;text-align:center;transition:all .18s}
 .vote-btn:hover{border-color:var(--purple)}
 .vote-btn.voted{border-color:var(--pink);background:rgba(236,72,153,.15)}
-.vote-btn .vname{font-size:.82rem;font-weight:700;margin-top:8px}
-.vote-btn .vcount{font-size:.72rem;color:var(--muted);margin-top:3px}
-.timer-bar{width:100%;height:6px;background:var(--card2);border-radius:3px;margin-bottom:8px;overflow:hidden}
+.vote-btn .vname{font-size:.8rem;font-weight:700;margin-top:7px}
+.vote-btn .vcount{font-size:.7rem;color:var(--muted);margin-top:2px}
+.timer-bar{width:100%;height:6px;background:var(--card2);border-radius:3px;margin-bottom:7px;overflow:hidden}
 .timer-fill{height:100%;background:linear-gradient(90deg,#7c3aed,#ec4899);border-radius:3px;transition:width 1s linear}
-.partida-item{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--card2);border-radius:12px;margin-bottom:8px;border:1.5px solid var(--border);width:100%}
-.swatch{width:34px;height:34px;border-radius:50%;cursor:pointer;border:2px solid transparent;display:inline-block;transition:transform .15s}
+.partida-item{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;background:var(--card2);border-radius:12px;margin-bottom:7px;border:1.5px solid var(--border);width:100%}
+.swatch{width:32px;height:32px;border-radius:50%;cursor:pointer;border:2px solid transparent;display:inline-block;transition:transform .15s}
 .swatch.sel{border-color:#fff;transform:scale(1.25)}
-.color-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:18px}
-.shape-opt{width:56px;height:56px;cursor:pointer;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;background:var(--card2);border-radius:10px;transition:all .15s}
+.color-row{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin-bottom:16px}
+.shape-opt{width:52px;height:52px;cursor:pointer;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;background:var(--card2);border-radius:10px;transition:all .15s}
 .shape-opt.sel{border-color:var(--purple2);background:rgba(139,92,246,.15)}
-.shape-row{display:flex;gap:10px;justify-content:center;margin-bottom:18px}
-.turn-box{text-align:center;padding:10px 14px;background:var(--card);border-radius:12px;margin-bottom:12px;font-size:.88rem;width:100%;border:1.5px solid var(--border)}
+.shape-row{display:flex;gap:10px;justify-content:center;margin-bottom:16px}
+.turn-box{text-align:center;padding:9px 14px;background:var(--card);border-radius:12px;margin-bottom:10px;font-size:.85rem;width:100%;border:1.5px solid var(--border)}
 .turn-box.myturn{background:rgba(139,92,246,.2);border-color:var(--purple);color:var(--purple2);font-weight:700}
-.turn-box.discussion{background:rgba(16,185,129,.15);border-color:var(--green);color:#6ee7b7;font-weight:700}
-.word-box{text-align:center;padding:28px 20px;background:var(--card2);border-radius:18px;margin-bottom:20px;width:100%;border:1.5px solid var(--border)}
-.word-box .role-label{font-size:.8rem;color:var(--muted);margin-bottom:10px;text-transform:uppercase;letter-spacing:1px}
-.word-box .word{font-family:'Boogaloo',cursive;font-size:2.6rem;color:var(--purple2)}
-.word-box .imp{font-family:'Boogaloo',cursive;font-size:2.2rem;color:var(--pink)}
-.result-box{text-align:center;padding:30px 20px;width:100%}
-.result-box .big{font-size:4rem;margin-bottom:12px;animation:pop .4s ease}
+.turn-box.disc{background:rgba(16,185,129,.15);border-color:var(--green);color:#6ee7b7;font-weight:700}
+.word-box{text-align:center;padding:24px 20px;background:var(--card2);border-radius:18px;margin-bottom:18px;width:100%;border:1.5px solid var(--border)}
+.word-box .rl{font-size:.78rem;color:var(--muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px}
+.word-box .wd{font-family:'Boogaloo',cursive;font-size:2.5rem;color:var(--purple2)}
+.word-box .im{font-family:'Boogaloo',cursive;font-size:2rem;color:var(--pink)}
+.result-box{text-align:center;padding:28px 20px;width:100%}
+.result-box .big{font-size:3.8rem;margin-bottom:10px;animation:pop .4s ease}
 @keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
-.badge{display:inline-block;padding:4px 14px;border-radius:999px;font-size:.8rem;font-weight:700}
+.badge{display:inline-block;padding:3px 12px;border-radius:999px;font-size:.78rem;font-weight:700}
 .badge-imp{background:rgba(239,68,68,.2);color:#fca5a5;border:1px solid rgba(239,68,68,.3)}
 .badge-civ{background:rgba(16,185,129,.2);color:#6ee7b7;border:1px solid rgba(16,185,129,.3)}
-.back-btn{align-self:flex-start;background:none;border:none;color:var(--muted);cursor:pointer;font-size:.88rem;margin-bottom:18px;font-family:'Nunito',sans-serif;padding:4px 0}
-.info-row{display:flex;justify-content:space-between;font-size:.85rem;color:var(--muted);margin-bottom:6px}
-label{font-size:.82rem;color:var(--muted);margin-bottom:4px;display:block;font-weight:600}
-.dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:6px}
+.back-btn{align-self:flex-start;background:none;border:none;color:var(--muted);cursor:pointer;font-size:.85rem;margin-bottom:16px;font-family:'Nunito',sans-serif;padding:4px 0}
+.info-row{display:flex;justify-content:space-between;font-size:.83rem;color:var(--muted);margin-bottom:5px}
+label{font-size:.8rem;color:var(--muted);margin-bottom:3px;display:block;font-weight:600}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:5px}
 .dot.on{background:var(--green);box-shadow:0 0 6px var(--green)}
 .dot.off{background:var(--red)}
-#toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(10px);background:var(--card2);border:1.5px solid var(--purple);color:var(--purple2);padding:10px 22px;border-radius:14px;font-size:.88rem;opacity:0;transition:all .3s;z-index:999;pointer-events:none;white-space:nowrap;font-weight:600}
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(10px);background:var(--card2);border:1.5px solid var(--purple);color:var(--purple2);padding:9px 20px;border-radius:14px;font-size:.85rem;opacity:0;transition:all .3s;z-index:9999;pointer-events:none;white-space:nowrap;font-weight:600}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-.levelup-popup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);background:var(--card2);border:2px solid var(--gold);border-radius:20px;padding:30px 40px;text-align:center;z-index:1000;transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
-.levelup-popup.show{transform:translate(-50%,-50%) scale(1)}
-.disc-banner{width:100%;background:rgba(16,185,129,.15);border:1.5px solid var(--green);border-radius:12px;padding:12px;margin-bottom:12px;text-align:center;font-size:.88rem;color:#6ee7b7;font-weight:700;display:none}
+.lvlup-popup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);background:var(--card2);border:2px solid var(--gold);border-radius:20px;padding:28px 36px;text-align:center;z-index:1000;transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.lvlup-popup.show{transform:translate(-50%,-50%) scale(1)}
+.disc-banner{width:100%;background:rgba(16,185,129,.15);border:1.5px solid var(--green);border-radius:12px;padding:10px;margin-bottom:10px;text-align:center;font-size:.85rem;color:#6ee7b7;font-weight:700;display:none}
 /* RANKING */
-.rank-item{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--card2);border-radius:12px;margin-bottom:8px;border:1.5px solid var(--border)}
-.rank-pos{font-family:'Boogaloo',cursive;font-size:1.4rem;color:var(--muted);width:32px;text-align:center}
-.rank-pos.gold{color:#f59e0b}
-.rank-pos.silver{color:#94a3b8}
-.rank-pos.bronze{color:#cd7c2f}
-/* REGISTRO */
-.reg-card{background:var(--card);border:1.5px solid var(--border);border-radius:20px;padding:28px 24px;width:100%;max-width:380px}
-.reg-step{display:none}.reg-step.active{display:block}
-.verify-code-display{font-family:'Boogaloo',cursive;font-size:2.5rem;letter-spacing:8px;color:var(--gold);text-align:center;padding:16px;background:var(--card2);border-radius:12px;margin:12px 0;border:1.5px solid rgba(245,158,11,.3)}
+.rank-item{display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(--card2);border-radius:12px;margin-bottom:7px;border:1.5px solid var(--border)}
+.rank-pos{font-family:'Boogaloo',cursive;font-size:1.3rem;color:var(--muted);width:30px;text-align:center;flex-shrink:0}
+.rank-pos.g{color:#f59e0b}.rank-pos.s{color:#94a3b8}.rank-pos.b{color:#cd7c2f}
+/* ANNOUNCEMENT */
+#announcement-banner{position:fixed;top:0;left:0;right:0;z-index:9998;background:linear-gradient(135deg,#7c3aed,#db2777);color:#fff;padding:12px 20px;text-align:center;font-weight:700;font-size:.92rem;transform:translateY(-100%);transition:transform .4s ease;cursor:pointer}
+#announcement-banner.show{transform:translateY(0)}
+/* ACCOUNT */
+.account-stat{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--card2);border-radius:12px;margin-bottom:7px}
+.account-stat .label{font-size:.8rem;color:var(--muted)}
+.account-stat .value{font-size:.95rem;font-weight:800;color:var(--text)}
+.account-list-item{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--card2);border-radius:12px;margin-bottom:7px;border:1.5px solid var(--border)}
+/* ADMIN */
+.admin-section{background:rgba(239,68,68,.08);border:1.5px solid rgba(239,68,68,.3);border-radius:14px;padding:14px;margin-top:12px;width:100%}
+.admin-section h3{color:#fca5a5}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
 </style>
 </head>
 <body>
+
+<div id="announcement-banner" onclick="this.classList.remove('show')">
+  <span id="announcement-text"></span> <span style="opacity:.6;font-size:.8rem;margin-left:8px;">(toca para cerrar)</span>
+</div>
 <div id="toast"></div>
-<div class="levelup-popup" id="lvlup">
-  <div style="font-size:3rem">⭐</div>
-  <h3 id="lvlup-txt" style="color:var(--gold);font-size:1.5rem;margin:8px 0"></h3>
-  <p id="lvlup-sub" style="color:var(--muted);font-size:.85rem"></p>
+<div class="lvlup-popup" id="lvlup">
+  <div style="font-size:2.8rem">⭐</div>
+  <div id="lvlup-txt" style="color:var(--gold);font-size:1.4rem;font-weight:800;margin:6px 0"></div>
+  <div id="lvlup-sub" style="color:var(--muted);font-size:.82rem"></div>
 </div>
 
 <!-- REGISTRO -->
-<div class="screen active" id="s-register" style="justify-content:center;">
-  <h1 style="margin-bottom:24px;">Gordos Game</h1>
-  <div class="reg-card">
-    <!-- Paso 1: nombre -->
-    <div class="reg-step active" id="reg-step1">
-      <h2 id="reg-h1">Crear cuenta</h2>
-      <p style="color:var(--muted);font-size:.85rem;margin-bottom:16px;text-align:center;" id="reg-sub1">Elige un nombre para jugar</p>
-      <label id="reg-lbl-name">Tu nombre</label>
+<div class="screen active" id="s-reg">
+  <h1 style="margin-bottom:20px">Gordos Game</h1>
+  <div class="card" style="max-width:380px;padding:24px">
+    <div id="reg-p1">
+      <h2 id="rh1">Crear cuenta</h2>
+      <p id="rsub1" style="color:var(--muted);font-size:.83rem;margin-bottom:14px;text-align:center">Elige un nombre único para jugar</p>
+      <label id="rl-name">Tu nombre</label>
       <input type="text" id="reg-name" maxlength="20" placeholder="Escribe tu nombre...">
-      <label id="reg-lbl-lang">Idioma</label>
+      <label id="rl-lang">Idioma</label>
       <select id="reg-lang">
         <option value="es">🇪🇸 Español</option>
         <option value="pt">🇧🇷 Português</option>
         <option value="en">🇺🇸 English</option>
       </select>
-      <button class="btn btn-primary" onclick="regStep1()" id="reg-btn1">Continuar →</button>
+      <button class="btn btn-primary" id="rbtn1" onclick="regP1()">Continuar →</button>
+      <div style="margin-top:10px;border-top:1px solid var(--border);padding-top:10px;">
+        <p style="font-size:.78rem;color:var(--muted);text-align:center;margin-bottom:8px" id="rl-have">¿Ya tienes cuenta?</p>
+        <button class="btn btn-secondary" id="rbtn-switch" onclick="showSwitchAccount()">Cambiar de cuenta</button>
+      </div>
     </div>
-    <!-- Paso 2: verificar código -->
-    <div class="reg-step" id="reg-step2">
-      <h2 id="reg-h2">Verificación</h2>
-      <p style="color:var(--muted);font-size:.85rem;margin-bottom:12px;text-align:center;" id="reg-sub2">Ingresa el código de verificación</p>
-      <div class="verify-code-display" id="demo-code-display" style="display:none"></div>
-      <p id="reg-demo-hint" style="color:var(--muted);font-size:.75rem;text-align:center;margin-bottom:12px;"></p>
-      <input type="text" id="reg-code" maxlength="6" placeholder="000000" style="text-align:center;font-size:1.5rem;letter-spacing:4px;">
-      <button class="btn btn-primary" onclick="regStep2()" id="reg-btn2">Registrarse</button>
-      <button class="btn btn-secondary" onclick="showRegStep(1)" id="reg-back">← Volver</button>
+    <div id="reg-p2" style="display:none">
+      <h2 id="rh2">Verificación</h2>
+      <p id="rsub2" style="color:var(--muted);font-size:.83rem;margin-bottom:10px;text-align:center">Código de verificación:</p>
+      <div id="demo-code" style="font-family:'Boogaloo',cursive;font-size:2.8rem;letter-spacing:8px;color:var(--gold);text-align:center;padding:14px;background:var(--card2);border-radius:12px;margin-bottom:8px;border:1.5px solid rgba(245,158,11,.3)"></div>
+      <p style="font-size:.72rem;color:var(--muted);text-align:center;margin-bottom:10px">(En producción llegaría por email)</p>
+      <input type="text" id="reg-code" maxlength="6" placeholder="000000" style="text-align:center;font-size:1.5rem;letter-spacing:4px">
+      <button class="btn btn-primary" id="rbtn2" onclick="regP2()">Registrarse</button>
+      <button class="btn btn-secondary" onclick="showRegP(1)" id="rbtn-back">← Volver</button>
     </div>
   </div>
+</div>
+
+<!-- SWITCH ACCOUNT -->
+<div class="screen" id="s-switch">
+  <button class="back-btn" onclick="go('s-reg')">← <span class="bl">Volver</span></button>
+  <h2 id="h-switch">Mis cuentas</h2>
+  <div id="account-list" style="width:100%"></div>
+  <button class="btn btn-primary" onclick="go('s-reg')" id="btn-add-account">+ Nueva cuenta</button>
 </div>
 
 <!-- MENÚ -->
 <div class="screen" id="s-menu">
-  <canvas id="menu-ball" width="90" height="90" style="margin-bottom:10px;"></canvas>
+  <canvas id="menu-ball" width="90" height="90" style="margin-bottom:8px"></canvas>
   <h1 id="titulo">Gordos Game</h1>
   <p class="subtitle"><span class="dot off" id="conn-dot"></span><span id="conn-txt">Conectando...</span></p>
   <div class="card">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-      <span style="font-size:.85rem;font-weight:800;color:var(--gold);">⭐ <span id="menu-level-lbl">Nivel</span> <span id="menu-level">1</span></span>
-      <button class="btn btn-secondary btn-sm" onclick="go('s-ranking')" id="btn-ranking" style="margin:0;padding:4px 12px;">🏆 Ranking</button>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+      <span style="font-size:.85rem;font-weight:800;color:var(--gold)">⭐ <span id="m-lv-lbl">Nivel</span> <span id="m-lv">1</span></span>
+      <div style="display:flex;gap:6px">
+        <button class="btn btn-secondary btn-sm" onclick="go('s-ranking')" id="btn-rank">🏆</button>
+        <button class="btn btn-secondary btn-sm" onclick="go('s-account')" id="btn-acct">👤</button>
+      </div>
     </div>
-    <div style="font-size:.72rem;color:var(--muted);margin-bottom:4px;"><span id="menu-xp">0</span> XP / <span id="menu-xp-next">100</span> XP</div>
-    <div class="xp-bar"><div class="xp-fill" id="menu-xp-bar" style="width:0%"></div></div>
-    <div style="height:14px;"></div>
-    <label id="lbl-lang-menu">Idioma</label>
-    <select id="inp-lang" onchange="changeLang()">
-      <option value="es">🇪🇸 Español</option>
-      <option value="pt">🇧🇷 Português</option>
-      <option value="en">🇺🇸 English</option>
-    </select>
+    <div style="font-size:.7rem;color:var(--muted);margin-bottom:3px"><span id="m-xp">0</span> / <span id="m-xp-next">100</span> XP</div>
+    <div class="xp-bar"><div class="xp-fill" id="m-xp-bar" style="width:0%"></div></div>
+    <div style="margin-top:12px">
+      <label id="lbl-lang-m">Idioma</label>
+      <select id="inp-lang" onchange="changeLang()" style="margin-bottom:0">
+        <option value="es">🇪🇸 Español</option>
+        <option value="pt">🇧🇷 Português</option>
+        <option value="en">🇺🇸 English</option>
+      </select>
+    </div>
   </div>
   <button class="btn btn-primary" id="btn-jugar" onclick="go('s-jugar')">🎮 Jugar</button>
-  <button class="btn btn-secondary" id="btn-avatar-menu" onclick="go('s-avatar')">🎨 Avatar</button>
+  <button class="btn btn-secondary" id="btn-avatar-m" onclick="go('s-avatar')">🎨 Avatar</button>
+  <!-- ADMIN panel -->
+  <div class="admin-section" id="admin-panel" style="display:none">
+    <h3>⚡ Admin</h3>
+    <textarea id="announcement-input" rows="2" placeholder="Escribe un anuncio global..." style="margin-bottom:8px"></textarea>
+    <button class="btn btn-gold btn-sm" onclick="sendAnnouncement()" style="width:100%;margin-bottom:8px" id="btn-announce">📢 Anuncio Global</button>
+    <button class="btn btn-danger btn-sm" onclick="go('s-admin')" style="width:100%">🔨 Gestionar usuarios</button>
+  </div>
 </div>
 
-<!-- AVATAR -->
-<div class="screen" id="s-avatar">
+<!-- ACCOUNT -->
+<div class="screen" id="s-account">
   <button class="back-btn" onclick="go('s-menu')">← <span class="bl">Volver</span></button>
-  <h2 id="h-avatar">Tu avatar</h2>
-  <canvas id="av-canvas" width="120" height="120" style="margin-bottom:18px;"></canvas>
-  <div class="card">
-    <h3 id="h-color">Color</h3><div class="color-row" id="color-row"></div>
-    <h3 id="h-forma">Forma</h3><div class="shape-row" id="shape-row"></div>
+  <h2 id="h-account">Mi cuenta</h2>
+  <canvas id="acct-ball" width="70" height="70" style="margin-bottom:10px"></canvas>
+  <div style="width:100%">
+    <div class="account-stat"><span class="label" id="al-name">Nombre</span><span class="value" id="av-name">-</span></div>
+    <div class="account-stat"><span class="label" id="al-id">ID de cuenta</span><span class="value" id="av-id" style="font-size:.72rem;word-break:break-all">-</span></div>
+    <div class="account-stat"><span class="label" id="al-lv">Nivel</span><span class="value" id="av-lv">1</span></div>
+    <div class="account-stat"><span class="label" id="al-xp">XP total</span><span class="value" id="av-xp">0</span></div>
+    <div class="account-stat"><span class="label" id="al-wc">Victorias como Civil</span><span class="value" id="av-wc">0</span></div>
+    <div class="account-stat"><span class="label" id="al-wi">Victorias como Impostor</span><span class="value" id="av-wi">0</span></div>
   </div>
-  <button class="btn btn-primary" id="btn-save-av" onclick="guardarAvatar()">Guardar avatar</button>
+  <button class="btn btn-secondary" style="margin-top:6px" onclick="go('s-switch')" id="btn-switch-acct">🔄 Cambiar cuenta</button>
+</div>
+
+<!-- ADMIN USERS -->
+<div class="screen" id="s-admin">
+  <button class="back-btn" onclick="go('s-menu')">← <span class="bl">Volver</span></button>
+  <h2>🔨 Usuarios</h2>
+  <div id="admin-users-list" style="width:100%"></div>
+  <button class="btn btn-secondary" onclick="loadAdminUsers()" style="margin-top:8px">Actualizar</button>
 </div>
 
 <!-- RANKING -->
 <div class="screen" id="s-ranking">
   <button class="back-btn" onclick="go('s-menu')">← <span class="bl">Volver</span></button>
   <h2 id="h-ranking">🏆 Ranking</h2>
-  <div id="ranking-list" style="width:100%;"></div>
-  <button class="btn btn-secondary" onclick="loadRanking()" id="btn-refresh-rank" style="margin-top:8px;">Actualizar</button>
+  <div id="ranking-list" style="width:100%"></div>
+  <button class="btn btn-secondary" onclick="loadRanking()" style="margin-top:8px" id="btn-ref-rank">Actualizar</button>
+</div>
+
+<!-- AVATAR -->
+<div class="screen" id="s-avatar">
+  <button class="back-btn" onclick="go('s-menu')">← <span class="bl">Volver</span></button>
+  <h2 id="h-avatar">Avatar</h2>
+  <canvas id="av-canvas" width="120" height="120" style="margin-bottom:16px"></canvas>
+  <div class="card">
+    <h3 id="h-color">Color</h3><div class="color-row" id="color-row"></div>
+    <h3 id="h-forma">Forma</h3><div class="shape-row" id="shape-row"></div>
+  </div>
+  <button class="btn btn-primary" id="btn-save-av" onclick="guardarAvatar()">Guardar avatar</button>
 </div>
 
 <!-- JUGAR -->
@@ -198,7 +252,7 @@ label{font-size:.82rem;color:var(--muted);margin-bottom:4px;display:block;font-w
 <div class="screen" id="s-codigo">
   <button class="back-btn" onclick="go('s-jugar')">← <span class="bl">Volver</span></button>
   <h2 id="h-codigo">Unirse con código</h2>
-  <input type="text" id="inp-codigo" placeholder="ABCD" maxlength="6" style="text-transform:uppercase;text-align:center;font-size:2rem;letter-spacing:8px;font-family:'Boogaloo',cursive;">
+  <input type="text" id="inp-codigo" placeholder="ABCD" maxlength="6" style="text-transform:uppercase;text-align:center;font-size:2rem;letter-spacing:8px;font-family:'Boogaloo',cursive">
   <button class="btn btn-primary" id="btn-unirse" onclick="unirseConCodigo()">Unirse</button>
 </div>
 
@@ -209,9 +263,9 @@ label{font-size:.82rem;color:var(--muted);margin-bottom:4px;display:block;font-w
   <div class="card">
     <label id="lbl-max">Máximo de jugadores</label>
     <input type="number" id="inp-max" value="6" min="2" max="12">
-    <label id="lbl-imp">Número de impostores</label>
+    <label id="lbl-imp">Impostores</label>
     <input type="number" id="inp-imp" value="1" min="1" max="4">
-    <label id="lbl-palabras">Palabras (separadas por coma)</label>
+    <label id="lbl-words">Palabras (coma)</label>
     <textarea id="inp-palabras" rows="3" placeholder="perro, gato, pizza..."></textarea>
   </div>
   <button class="btn btn-primary" id="btn-crear-ok" onclick="crearPartida()">Crear partida</button>
@@ -221,51 +275,51 @@ label{font-size:.82rem;color:var(--muted);margin-bottom:4px;display:block;font-w
 <div class="screen" id="s-partidas">
   <button class="back-btn" onclick="go('s-jugar')">← <span class="bl">Volver</span></button>
   <h2 id="h-partidas">Partidas disponibles</h2>
-  <div id="lista-partidas" style="width:100%;"></div>
-  <button class="btn btn-secondary" style="margin-top:8px;" id="btn-actualizar" onclick="pedirPartidas()">Actualizar</button>
+  <div id="lista-partidas" style="width:100%"></div>
+  <button class="btn btn-secondary" style="margin-top:8px" id="btn-act" onclick="pedirPartidas()">Actualizar</button>
 </div>
 
 <!-- SALA -->
 <div class="screen" id="s-sala">
   <h2 id="h-sala">Sala de espera</h2>
   <div class="code-box" id="sala-code">----</div>
-  <p id="sala-share" style="font-size:.8rem;color:var(--muted);margin-bottom:18px;text-align:center;"></p>
+  <p id="sala-share" style="font-size:.78rem;color:var(--muted);margin-bottom:16px;text-align:center"></p>
   <div class="card">
-    <div class="info-row"><span id="lbl-jug">Jugadores</span><span id="sala-count">1/6</span></div>
-    <div class="info-row"><span id="lbl-imp2">Impostores</span><span id="sala-imps">1</span></div>
+    <div class="info-row"><span id="l-jug">Jugadores</span><span id="sala-count">1/6</span></div>
+    <div class="info-row"><span id="l-imp">Impostores</span><span id="sala-imps">1</span></div>
   </div>
-  <div id="sala-players" style="width:100%;"></div>
-  <button class="btn btn-primary" id="btn-iniciar" style="display:none;" onclick="iniciarPartida()">▶ Iniciar partida</button>
-  <p id="sala-wait" style="color:var(--muted);font-size:.88rem;text-align:center;display:none;"></p>
+  <div id="sala-players" style="width:100%"></div>
+  <button class="btn btn-primary" id="btn-iniciar" style="display:none" onclick="iniciarPartida()">▶ Iniciar</button>
+  <p id="sala-wait" style="color:var(--muted);font-size:.85rem;text-align:center;display:none"></p>
 </div>
 
 <!-- ROL -->
 <div class="screen" id="s-rol">
   <h2 id="h-rol">Tu rol</h2>
   <div class="word-box" id="rol-box"></div>
-  <p id="rol-hint" style="color:var(--muted);font-size:.82rem;text-align:center;margin-bottom:22px;"></p>
-  <button class="btn btn-primary" id="btn-al-chat" onclick="go('s-chat');iniciarChat();">Entendido</button>
+  <p id="rol-hint" style="color:var(--muted);font-size:.8rem;text-align:center;margin-bottom:20px"></p>
+  <button class="btn btn-primary" id="btn-al-chat" onclick="go('s-chat');iniciarChat()">Entendido</button>
 </div>
 
 <!-- CHAT -->
 <div class="screen" id="s-chat">
-  <div style="width:100%;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-    <h2 style="margin:0;">Chat</h2>
-    <span id="chat-info" style="font-size:.78rem;color:var(--muted);"></span>
+  <div style="width:100%;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+    <h2 style="margin:0">Chat</h2>
+    <span id="chat-info" style="font-size:.75rem;color:var(--muted)"></span>
   </div>
   <div class="disc-banner" id="disc-banner"></div>
   <div class="turn-box" id="turn-box">...</div>
   <div class="chat-wrap">
     <div class="chat-box" id="chat-box"></div>
     <div class="vote-overlay" id="vote-overlay">
-      <div class="vot-title" id="vot-title">🗳️ Votación</div>
-      <div class="vot-sub" id="vot-sub">Comenzando votación...</div>
-      <button class="btn btn-primary" style="width:auto;padding:10px 28px;margin-top:16px;" onclick="go('s-voto')" id="btn-ir-voto">Ir a votar →</button>
+      <div class="vot-big" id="vot-big">🗳️ Votación</div>
+      <div class="vot-sub" id="vot-sub">¡Todos hablaron!</div>
+      <button class="btn btn-primary btn-sm" id="btn-ir-voto" style="width:auto;padding:10px 24px;margin-top:10px">Ir a votar →</button>
     </div>
   </div>
-  <div style="width:100%;display:flex;gap:8px;margin-bottom:10px;">
-    <input type="text" id="chat-inp" placeholder="Escribe algo..." style="margin:0;flex:1;" onkeydown="if(event.key==='Enter')enviarMsg()">
-    <button class="btn btn-primary btn-sm" onclick="enviarMsg()" style="width:auto;margin:0;" id="btn-enviar">Enviar</button>
+  <div style="width:100%;display:flex;gap:8px;margin-bottom:8px">
+    <input type="text" id="chat-inp" placeholder="Escribe..." style="margin:0;flex:1" onkeydown="if(event.key==='Enter')enviarMsg()">
+    <button class="btn btn-primary btn-sm" onclick="enviarMsg()" style="width:auto;margin:0" id="btn-enviar">Enviar</button>
   </div>
   <button class="btn btn-secondary" id="btn-proponer" onclick="proponerVoto()">🗳️ Proponer votación</button>
 </div>
@@ -273,9 +327,9 @@ label{font-size:.82rem;color:var(--muted);margin-bottom:4px;display:block;font-w
 <!-- VOTACIÓN -->
 <div class="screen" id="s-voto">
   <h2 id="h-voto">¡Votación!</h2>
-  <p id="voto-hint" style="color:var(--muted);font-size:.82rem;margin-bottom:14px;text-align:center;"></p>
-  <div class="timer-bar"><div class="timer-fill" id="timer-fill" style="width:100%;"></div></div>
-  <p style="text-align:center;font-size:.82rem;color:var(--muted);margin-bottom:16px;" id="timer-txt">12s</p>
+  <p id="voto-hint" style="color:var(--muted);font-size:.8rem;margin-bottom:12px;text-align:center"></p>
+  <div class="timer-bar"><div class="timer-fill" id="timer-fill" style="width:100%"></div></div>
+  <p style="text-align:center;font-size:.8rem;color:var(--muted);margin-bottom:14px" id="timer-txt">12s</p>
   <div class="vote-grid" id="vote-grid"></div>
 </div>
 
@@ -287,155 +341,124 @@ label{font-size:.82rem;color:var(--muted);margin-bottom:4px;display:block;font-w
 </div>
 
 <script>
-// ── IDIOMAS ───────────────────────────────────────────────────────
-var L = {
-  es:{crear_cuenta:'Crear cuenta',elige_nombre:'Elige un nombre para jugar',tu_nombre:'Tu nombre',idioma:'Idioma',continuar:'Continuar →',verificacion:'Verificación',ingresa_codigo:'Ingresa el código que aparece abajo',registrarse:'Registrarse',volver:'Volver',jugar:'🎮 Jugar',avatar_btn:'🎨 Avatar',nivel:'Nivel',ranking:'🏆 Ranking',como_jugar:'¿Cómo quieres jugar?',unirse_codigo:'🔑 Unirse con código',crear_partida:'✨ Crear partida',ver_partidas:'🔍 Ver partidas',codigo_titulo:'Unirse con código',unirse:'Unirse',crear_titulo:'Crear partida',max_jug:'Máximo de jugadores',num_imp:'Número de impostores',palabras:'Palabras (separadas por coma)',sala:'Sala de espera',comparte:'Comparte este código con tus amigos',jugadores:'Jugadores',impostores:'Impostores',iniciar:'▶ Iniciar partida',esperando:'Esperando al anfitrión...',tu_rol:'Tu rol en esta partida',no_mostrar:'¡No muestres esto a nadie!',entendido:'Entendido, ir al chat',proponer:'🗳️ Proponer votación',enviar:'Enviar',votacion:'¡Votación!',vota_para:'Vota para expulsar a alguien',continuar_p:'Continuar partida',menu_btn:'Volver al menú',discusion:'💬 Discusión — ¡hablen!',tu_turno:'¡Es tu turno!',turno_de:'Turno de',impostor:'IMPOSTOR',civil:'CIVIL',civiles_ganan:'¡Los civiles ganaron! 🎉',imp_ganan:'¡Los impostores ganan! 💀',sigue:'El impostor sigue entre ustedes...',expulsado:'fue expulsado',era:'Era',empate:'Empate — nadie fue expulsado',color:'Color',forma:'Forma',guardar_av:'Guardar avatar',actualizar:'Actualizar',buscando:'Buscando partidas...',no_partidas:'No hay partidas disponibles',conectado:'Conectado',conectando:'Conectando...',desconectado:'Desconectado — reconectando...',traducido_de:'Traducido del',todos_hablaron:'¡Todos hablaron! Propón votación',xp_sig:'XP para siguiente nivel',subiste:'¡Subiste al nivel',partidas_disp:'Partidas disponibles',voto_overlay:'🗳️ Votación',voto_sub:'¡Todos han hablado! La votación puede comenzar',ir_votar:'Ir a votar →',no_turno:'No es tu turno',sin_conexion:'Sin conexión',al_menos_2:'Necesitas al menos 2 jugadores',escribe_codigo:'Escribe un código',av_guardado:'¡Avatar guardado!',nombre_corto:'El nombre es muy corto',cod_incorrecto:'Código incorrecto',cod_expirado:'Código expirado',lang_es:'Español',lang_pt:'Português',lang_en:'English'},
-  pt:{crear_cuenta:'Criar conta',elige_nombre:'Escolha um nome para jogar',tu_nombre:'Seu nome',idioma:'Idioma',continuar:'Continuar →',verificacion:'Verificação',ingresa_codigo:'Insira o código que aparece abaixo',registrarse:'Registrar',volver:'Voltar',jugar:'🎮 Jogar',avatar_btn:'🎨 Avatar',nivel:'Nível',ranking:'🏆 Ranking',como_jugar:'Como quer jogar?',unirse_codigo:'🔑 Entrar com código',crear_partida:'✨ Criar partida',ver_partidas:'🔍 Ver partidas',codigo_titulo:'Entrar com código',unirse:'Entrar',crear_titulo:'Criar partida',max_jug:'Máximo de jogadores',num_imp:'Número de impostores',palabras:'Palavras (separadas por vírgula)',sala:'Sala de espera',comparte:'Compartilhe este código com seus amigos',jugadores:'Jogadores',impostores:'Impostores',iniciar:'▶ Iniciar partida',esperando:'Aguardando o anfitrião...',tu_rol:'Seu papel nesta partida',no_mostrar:'Não mostre isso a ninguém!',entendido:'Entendido, ir ao chat',proponer:'🗳️ Propor votação',enviar:'Enviar',votacion:'Votação!',vota_para:'Vote para expulsar alguém',continuar_p:'Continuar partida',menu_btn:'Voltar ao menu',discusion:'💬 Discussão — falem!',tu_turno:'É a sua vez!',turno_de:'Vez de',impostor:'IMPOSTOR',civil:'CIVIL',civiles_ganan:'Os civis ganharam! 🎉',imp_ganan:'Os impostores vencem! 💀',sigue:'O impostor ainda está entre vocês...',expulsado:'foi expulso',era:'Era',empate:'Empate — ninguém foi expulso',color:'Cor',forma:'Forma',guardar_av:'Salvar avatar',actualizar:'Atualizar',buscando:'Procurando partidas...',no_partidas:'Nenhuma partida disponível',conectado:'Conectado',conectando:'Conectando...',desconectado:'Desconectado — reconectando...',traducido_de:'Traduzido do',todos_hablaron:'Todos falaram! Proponha votação',xp_sig:'XP para próximo nível',subiste:'Você subiu ao nível',partidas_disp:'Partidas disponíveis',voto_overlay:'🗳️ Votação',voto_sub:'Todos falaram! A votação pode começar',ir_votar:'Ir votar →',no_turno:'Não é a sua vez',sin_conexion:'Sem conexão',al_menos_2:'Você precisa de pelo menos 2 jogadores',escribe_codigo:'Digite um código',av_guardado:'Avatar salvo!',nombre_corto:'Nome muito curto',cod_incorrecto:'Código incorreto',cod_expirado:'Código expirado',lang_es:'Espanhol',lang_pt:'Português',lang_en:'Inglês'},
-  en:{crear_cuenta:'Create account',elige_nombre:'Choose a name to play',tu_nombre:'Your name',idioma:'Language',continuar:'Continue →',verificacion:'Verification',ingresa_codigo:'Enter the code shown below',registrarse:'Register',volver:'Back',jugar:'🎮 Play',avatar_btn:'🎨 Avatar',nivel:'Level',ranking:'🏆 Ranking',como_jugar:'How do you want to play?',unirse_codigo:'🔑 Join with code',crear_partida:'✨ Create game',ver_partidas:'🔍 Browse games',codigo_titulo:'Join with code',unirse:'Join',crear_titulo:'Create game',max_jug:'Max players',num_imp:'Number of impostors',palabras:'Words (comma separated)',sala:'Waiting room',comparte:'Share this code with your friends',jugadores:'Players',impostores:'Impostors',iniciar:'▶ Start game',esperando:'Waiting for host...',tu_rol:'Your role this game',no_mostrar:"Don't show this to anyone!",entendido:'Got it, go to chat',proponer:'🗳️ Propose vote',enviar:'Send',votacion:'Vote!',vota_para:'Vote to eliminate someone',continuar_p:'Continue game',menu_btn:'Back to menu',discusion:'💬 Discussion — talk!',tu_turno:'Your turn!',turno_de:'Turn of',impostor:'IMPOSTOR',civil:'CIVILIAN',civiles_ganan:'Civilians win! 🎉',imp_ganan:'Impostors win! 💀',sigue:'The impostor is still among you...',expulsado:'was expelled',era:'Was',empate:'Tie — nobody was expelled',color:'Color',forma:'Shape',guardar_av:'Save avatar',actualizar:'Refresh',buscando:'Looking for games...',no_partidas:'No games available',conectado:'Connected',conectando:'Connecting...',desconectado:'Disconnected — reconnecting...',traducido_de:'Translated from',todos_hablaron:'Everyone spoke! Propose a vote',xp_sig:'XP to next level',subiste:'You leveled up to level',partidas_disp:'Available games',voto_overlay:'🗳️ Vote',voto_sub:'Everyone has spoken! Voting can begin',ir_votar:'Go vote →',no_turno:"Not your turn",sin_conexion:'No connection',al_menos_2:'You need at least 2 players',escribe_codigo:'Enter a code',av_guardado:'Avatar saved!',nombre_corto:'Name is too short',cod_incorrecto:'Incorrect code',cod_expirado:'Code expired',lang_es:'Spanish',lang_pt:'Portuguese',lang_en:'English'}
-};
-var LANG_NAMES={es:'Español',pt:'Português',en:'English'};
+// ── TEXTOS ────────────────────────────────────────────────────────
+var TXT={es:{crear_cuenta:'Crear cuenta',nombre_unico:'Elige un nombre único para jugar',tu_nombre:'Tu nombre',idioma:'Idioma',continuar:'Continuar →',verificacion:'Verificación',registrarse:'Registrarse',volver:'Volver',ya_tienes:'¿Ya tienes cuenta?',cambiar:'Cambiar de cuenta',mis_cuentas:'Mis cuentas',nueva_cuenta:'+ Nueva cuenta',mi_cuenta:'Mi cuenta',nivel:'Nivel',xp_total:'XP total',vic_civil:'Victorias como Civil',vic_imp:'Victorias como Impostor',id_cuenta:'ID de cuenta',cambiar_cuenta:'🔄 Cambiar cuenta',ranking:'🏆 Ranking',jugar:'🎮 Jugar',avatar_btn:'🎨 Avatar',lang_menu:'Idioma',como_jugar:'¿Cómo quieres jugar?',unirse_cod:'🔑 Unirse con código',crear_p:'✨ Crear partida',ver_p:'🔍 Ver partidas',unirse_titulo:'Unirse con código',unirse:'Unirse',crear_titulo:'Crear partida',max_jug:'Máximo de jugadores',num_imp:'Impostores',palabras:'Palabras (separadas por coma)',partidas:'Partidas disponibles',actualizar:'Actualizar',sala:'Sala de espera',comparte:'Comparte este código con tus amigos',jugadores:'Jugadores',impostores:'Impostores',iniciar:'▶ Iniciar',esperando:'Esperando al anfitrión...',tu_rol:'Tu rol',no_mostrar:'¡No muestres esto a nadie!',entendido:'Entendido, ir al chat',proponer:'🗳️ Proponer votación',enviar:'Enviar',votacion:'¡Votación!',vota_para:'Vota para expulsar a alguien',continuar_p:'Continuar partida',menu_btn:'Volver al menú',discusion:'💬 Discusión',tu_turno:'¡Es tu turno!',turno_de:'Turno de',impostor:'IMPOSTOR',civil:'CIVIL',civiles_ganan:'¡Los civiles ganaron! 🎉',imp_ganan:'¡Los impostores ganan! 💀',sigue:'El impostor sigue entre ustedes...',expulsado:'fue expulsado',era:'Era',empate:'Empate — nadie fue expulsado',color:'Color',forma:'Forma',guardar_av:'Guardar avatar',buscando:'Buscando...',no_partidas:'No hay partidas disponibles',conectado:'Conectado',conectando:'Conectando...',desconectado:'Desconectado',trad_de:'Traducido del',todos_hablaron:'¡Todos hablaron!',xp_sig:'XP para siguiente nivel',subiste:'¡Subiste al nivel',vot_sub:'¡Todos han hablado! La votación puede comenzar',ir_votar:'Ir a votar →',no_turno:'No es tu turno',sin_con:'Sin conexión',al_menos_2:'Necesitas al menos 2 jugadores',esc_cod:'Escribe un código',av_ok:'¡Avatar guardado!',nom_corto:'Nombre muy corto (mínimo 2)',nom_tomado:'Ese nombre ya está en uso',cod_mal:'Código incorrecto',cod_exp:'Código expirado',baneado:'Has sido baneado. No puedes unirte a partidas.',anuncio_placeholder:'Escribe un anuncio global...'},
+pt:{crear_cuenta:'Criar conta',nombre_unico:'Escolha um nome único para jogar',tu_nombre:'Seu nome',idioma:'Idioma',continuar:'Continuar →',verificacion:'Verificação',registrarse:'Registrar',volver:'Voltar',ya_tienes:'Já tem conta?',cambiar:'Trocar de conta',mis_cuentas:'Minhas contas',nueva_cuenta:'+ Nova conta',mi_cuenta:'Minha conta',nivel:'Nível',xp_total:'XP total',vic_civil:'Vitórias como Civil',vic_imp:'Vitórias como Impostor',id_cuenta:'ID da conta',cambiar_cuenta:'🔄 Trocar conta',ranking:'🏆 Ranking',jugar:'🎮 Jogar',avatar_btn:'🎨 Avatar',lang_menu:'Idioma',como_jugar:'Como quer jogar?',unirse_cod:'🔑 Entrar com código',crear_p:'✨ Criar partida',ver_p:'🔍 Ver partidas',unirse_titulo:'Entrar com código',unirse:'Entrar',crear_titulo:'Criar partida',max_jug:'Máximo de jogadores',num_imp:'Impostores',palabras:'Palavras (separadas por vírgula)',partidas:'Partidas disponíveis',actualizar:'Atualizar',sala:'Sala de espera',comparte:'Compartilhe este código com seus amigos',jugadores:'Jogadores',impostores:'Impostores',iniciar:'▶ Iniciar',esperando:'Aguardando o anfitrião...',tu_rol:'Seu papel',no_mostrar:'Não mostre isso a ninguém!',entendido:'Entendido, ir ao chat',proponer:'🗳️ Propor votação',enviar:'Enviar',votacion:'Votação!',vota_para:'Vote para expulsar alguém',continuar_p:'Continuar partida',menu_btn:'Voltar ao menu',discusion:'💬 Discussão',tu_turno:'É a sua vez!',turno_de:'Vez de',impostor:'IMPOSTOR',civil:'CIVIL',civiles_ganan:'Os civis ganharam! 🎉',imp_ganan:'Os impostores vencem! 💀',sigue:'O impostor ainda está entre vocês...',expulsado:'foi expulso',era:'Era',empate:'Empate — ninguém foi expulso',color:'Cor',forma:'Forma',guardar_av:'Salvar avatar',buscando:'Procurando...',no_partidas:'Nenhuma partida disponível',conectado:'Conectado',conectando:'Conectando...',desconectado:'Desconectado',trad_de:'Traduzido do',todos_hablaron:'Todos falaram!',xp_sig:'XP para próximo nível',subiste:'Você subiu ao nível',vot_sub:'Todos falaram! A votação pode começar',ir_votar:'Ir votar →',no_turno:'Não é a sua vez',sin_con:'Sem conexão',al_menos_2:'Precisa de pelo menos 2 jogadores',esc_cod:'Digite um código',av_ok:'Avatar salvo!',nom_corto:'Nome muito curto (mínimo 2)',nom_tomado:'Esse nome já está em uso',cod_mal:'Código incorreto',cod_exp:'Código expirado',baneado:'Você foi banido. Não pode entrar em partidas.',anuncio_placeholder:'Escreva um anúncio global...'},
+en:{crear_cuenta:'Create account',nombre_unico:'Choose a unique name to play',tu_nombre:'Your name',idioma:'Language',continuar:'Continue →',verificacion:'Verification',registrarse:'Register',volver:'Back',ya_tienes:'Already have an account?',cambiar:'Switch account',mis_cuentas:'My accounts',nueva_cuenta:'+ New account',mi_cuenta:'My account',nivel:'Level',xp_total:'Total XP',vic_civil:'Wins as Civilian',vic_imp:'Wins as Impostor',id_cuenta:'Account ID',cambiar_cuenta:'🔄 Switch account',ranking:'🏆 Ranking',jugar:'🎮 Play',avatar_btn:'🎨 Avatar',lang_menu:'Language',como_jugar:'How do you want to play?',unirse_cod:'🔑 Join with code',crear_p:'✨ Create game',ver_p:'🔍 Browse games',unirse_titulo:'Join with code',unirse:'Join',crear_titulo:'Create game',max_jug:'Max players',num_imp:'Impostors',palabras:'Words (comma separated)',partidas:'Available games',actualizar:'Refresh',sala:'Waiting room',comparte:'Share this code with your friends',jugadores:'Players',impostores:'Impostors',iniciar:'▶ Start',esperando:'Waiting for host...',tu_rol:'Your role',no_mostrar:"Don't show this to anyone!",entendido:'Got it, go to chat',proponer:'🗳️ Propose vote',enviar:'Send',votacion:'Vote!',vota_para:'Vote to eliminate someone',continuar_p:'Continue game',menu_btn:'Back to menu',discusion:'💬 Discussion',tu_turno:'Your turn!',turno_de:'Turn of',impostor:'IMPOSTOR',civil:'CIVILIAN',civiles_ganan:'Civilians win! 🎉',imp_ganan:'Impostors win! 💀',sigue:'The impostor is still among you...',expulsado:'was expelled',era:'Was',empate:'Tie — nobody was expelled',color:'Color',forma:'Shape',guardar_av:'Save avatar',buscando:'Looking...',no_partidas:'No games available',conectado:'Connected',conectando:'Connecting...',desconectado:'Disconnected',trad_de:'Translated from',todos_hablaron:'Everyone spoke!',xp_sig:'XP to next level',subiste:'You leveled up to level',vot_sub:'Everyone spoke! Voting can begin',ir_votar:'Go vote →',no_turno:"Not your turn",sin_con:'No connection',al_menos_2:'You need at least 2 players',esc_cod:'Enter a code',av_ok:'Avatar saved!',nom_corto:'Name too short (min 2)',nom_tomado:'That name is already taken',cod_mal:'Incorrect code',cod_exp:'Code expired',baneado:'You have been banned. You cannot join games.',anuncio_placeholder:'Write a global announcement...'}};
+var LN={es:'Español',pt:'Português',en:'English'};
+var ADMIN_NAME='sarbelotefcb';
 
+// ── ESTADO ────────────────────────────────────────────────────────
 var myLang=localStorage.getItem('gg_lang')||'es';
 var myLevel=parseInt(localStorage.getItem('gg_level')||'1');
 var myXP=parseInt(localStorage.getItem('gg_xp')||'0');
 var myName=localStorage.getItem('gg_name')||'';
 var myUserId=localStorage.getItem('gg_uid')||'';
 var myAvatar=JSON.parse(localStorage.getItem('gg_avatar')||'{"color":"#a78bfa","shape":"circle"}');
+var myWins={civil:parseInt(localStorage.getItem('gg_wc')||'0'),imp:parseInt(localStorage.getItem('gg_wi')||'0')};
 var myId='p_'+Math.random().toString(36).slice(2,9);
 var regKey='';
+var isAdmin=false;
+var ws,wsReady=false;
+var currentRoom=null,currentRoomData=null,isHost=false,myRole=null,myWord=null;
+var voteTimer=null,discInterval=null,inDisc=false,cachedVotePlayers=null;
 
-function t(k){return (L[myLang]||L.es)[k]||k;}
+function t(k){return(TXT[myLang]||TXT.es)[k]||k;}
 
-function applyLang(){
-  // Register
-  document.getElementById('reg-h1').textContent=t('crear_cuenta');
-  document.getElementById('reg-sub1').textContent=t('elige_nombre');
-  document.getElementById('reg-h2').textContent=t('verificacion');
-  document.getElementById('reg-sub2').textContent=t('ingresa_codigo');
-  document.getElementById('reg-btn1').textContent=t('continuar');
-  document.getElementById('reg-btn2').textContent=t('registrarse');
-  document.getElementById('reg-back').textContent='← '+t('volver');
-  // Menu
-  document.getElementById('btn-jugar').textContent=t('jugar');
-  document.getElementById('btn-avatar-menu').textContent=t('avatar_btn');
-  document.getElementById('btn-ranking').textContent=t('ranking');
-  document.getElementById('h-ranking').textContent=t('ranking');
-  document.getElementById('h-jugar').textContent=t('como_jugar');
-  document.getElementById('btn-codigo').textContent=t('unirse_codigo');
-  document.getElementById('btn-crear').textContent=t('crear_partida');
-  document.getElementById('btn-ver').textContent=t('ver_partidas');
-  document.getElementById('h-codigo').textContent=t('codigo_titulo');
-  document.getElementById('btn-unirse').textContent=t('unirse');
-  document.getElementById('h-crear').textContent=t('crear_titulo');
-  document.getElementById('lbl-max').textContent=t('max_jug');
-  document.getElementById('lbl-imp').textContent=t('num_imp');
-  document.getElementById('lbl-palabras').textContent=t('palabras');
-  document.getElementById('btn-crear-ok').textContent=t('crear_partida');
-  document.getElementById('h-partidas').textContent=t('partidas_disp');
-  document.getElementById('btn-actualizar').textContent=t('actualizar');
-  document.getElementById('h-sala').textContent=t('sala');
-  document.getElementById('sala-share').textContent=t('comparte');
-  document.getElementById('lbl-jug').textContent=t('jugadores');
-  document.getElementById('lbl-imp2').textContent=t('impostores');
-  document.getElementById('btn-iniciar').textContent=t('iniciar');
-  document.getElementById('sala-wait').textContent=t('esperando');
-  document.getElementById('h-rol').textContent=t('tu_rol');
-  document.getElementById('rol-hint').textContent=t('no_mostrar');
-  document.getElementById('btn-al-chat').textContent=t('entendido');
-  document.getElementById('btn-proponer').textContent=t('proponer');
-  document.getElementById('btn-enviar').textContent=t('enviar');
-  document.getElementById('h-voto').textContent=t('votacion');
-  document.getElementById('voto-hint').textContent=t('vota_para');
-  document.getElementById('btn-continuar').textContent=t('continuar_p');
-  document.getElementById('btn-menu').textContent=t('menu_btn');
-  document.getElementById('h-avatar').textContent='Avatar';
-  document.getElementById('h-color').textContent=t('color');
-  document.getElementById('h-forma').textContent=t('forma');
-  document.getElementById('btn-save-av').textContent=t('guardar_av');
-  document.getElementById('vot-title').textContent=t('voto_overlay');
-  document.getElementById('vot-sub').textContent=t('voto_sub');
-  document.getElementById('btn-ir-voto').textContent=t('ir_votar');
-  document.querySelectorAll('.bl').forEach(function(el){el.textContent=t('volver');});
-  document.getElementById('menu-level-lbl').textContent=t('nivel');
-  document.getElementById('lbl-lang-menu').textContent=t('idioma');
-  updateLevelUI();
+// ── SAVED ACCOUNTS ────────────────────────────────────────────────
+function getSavedAccounts(){try{return JSON.parse(localStorage.getItem('gg_accounts')||'[]');}catch{return[];}}
+function saveAccount(uid,name,lv,xp){
+  var accts=getSavedAccounts();
+  var idx=accts.findIndex(function(a){return a.uid===uid;});
+  if(idx>=0)accts[idx]={uid:uid,name:name,level:lv,xp:xp};
+  else accts.push({uid:uid,name:name,level:lv,xp:xp});
+  localStorage.setItem('gg_accounts',JSON.stringify(accts));
 }
-
-function changeLang(){
-  myLang=document.getElementById('inp-lang').value;
-  localStorage.setItem('gg_lang',myLang);
-  applyLang();
+function switchToAccount(uid,name,lv,xp){
+  myUserId=uid;myName=name;myLevel=lv;myXP=xp;
+  localStorage.setItem('gg_uid',uid);localStorage.setItem('gg_name',name);
+  localStorage.setItem('gg_level',lv);localStorage.setItem('gg_xp',xp);
+  isAdmin=(name.toLowerCase()===ADMIN_NAME.toLowerCase());
+  applyLang();go('s-menu');
 }
 
 // ── REGISTRO ──────────────────────────────────────────────────────
-function showRegStep(n){
-  document.querySelectorAll('.reg-step').forEach(function(el){el.classList.remove('active');});
-  document.getElementById('reg-step'+n).classList.add('active');
+function showRegP(n){
+  document.getElementById('reg-p1').style.display=n===1?'block':'none';
+  document.getElementById('reg-p2').style.display=n===2?'block':'none';
+}
+function showSwitchAccount(){
+  var accts=getSavedAccounts();
+  if(!accts.length){toast('No tienes cuentas guardadas');return;}
+  renderSwitchList();go('s-switch');
+}
+function renderSwitchList(){
+  var accts=getSavedAccounts();
+  var cont=document.getElementById('account-list');cont.innerHTML='';
+  accts.forEach(function(a){
+    var div=document.createElement('div');div.className='account-list-item';
+    div.innerHTML='<div><div style="font-weight:700">'+escH(a.name)+'</div><div style="font-size:.75rem;color:var(--muted)">Lv.'+a.level+' — '+a.xp+' XP</div></div>';
+    var btn=document.createElement('button');btn.className='btn btn-primary btn-sm';btn.textContent=t('continuar').replace(' →','');
+    btn.onclick=(function(ac){return function(){switchToAccount(ac.uid,ac.name,ac.level,ac.xp);connectWS();};})(a);
+    div.appendChild(btn);cont.appendChild(div);
+  });
 }
 
-async function regStep1(){
+async function regP1(){
   var name=document.getElementById('reg-name').value.trim();
   myLang=document.getElementById('reg-lang').value;
   localStorage.setItem('gg_lang',myLang);
-  if(name.length<2){toast(t('nombre_corto'));return;}
-  var btn=document.getElementById('reg-btn1');
-  btn.textContent='...'; btn.disabled=true;
+  if(name.length<2){toast(t('nom_corto'));return;}
+  var btn=document.getElementById('rbtn1');btn.textContent='...';btn.disabled=true;
   try{
     var res=await fetch('/api/request-code',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name})});
-    var data=await res.json();
-    if(!data.ok){toast(data.error||'Error');btn.textContent=t('continuar');btn.disabled=false;return;}
-    regKey=data.key;
-    // Mostrar código (demo — en prod esto iría por email/SMS)
-    document.getElementById('demo-code-display').style.display='block';
-    document.getElementById('demo-code-display').textContent=data._demo_code;
-    document.getElementById('reg-demo-hint').textContent='(En producción esto llegaría por email/SMS)';
-    showRegStep(2);
-  }catch(e){toast('Error de conexión');}
+    var d=await res.json();
+    if(!d.ok){toast(d.error==='taken'?t('nom_tomado'):t('nom_corto'));btn.textContent=t('continuar');btn.disabled=false;return;}
+    regKey=d.key;
+    document.getElementById('demo-code').textContent=d._demo_code;
+    showRegP(2);
+  }catch(e){toast('Error de red');}
   btn.textContent=t('continuar');btn.disabled=false;
 }
 
-async function regStep2(){
+async function regP2(){
   var code=document.getElementById('reg-code').value.trim();
-  var btn=document.getElementById('reg-btn2');
-  btn.textContent='...';btn.disabled=true;
+  var btn=document.getElementById('rbtn2');btn.textContent='...';btn.disabled=true;
   try{
     var res=await fetch('/api/verify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({key:regKey,code:code})});
-    var data=await res.json();
-    if(!data.ok){toast(t(data.error==='Código incorrecto'?'cod_incorrecto':'cod_expirado'));btn.textContent=t('registrarse');btn.disabled=false;return;}
-    myName=data.name; myUserId=data.userId;
-    localStorage.setItem('gg_name',myName);
-    localStorage.setItem('gg_uid',myUserId);
-    applyLang();
-    go('s-menu');
-  }catch(e){toast('Error de conexión');}
+    var d=await res.json();
+    if(!d.ok){toast(d.error==='wrong'?t('cod_mal'):t('cod_exp'));btn.textContent=t('registrarse');btn.disabled=false;return;}
+    myName=d.name;myUserId=d.userId;myLevel=1;myXP=0;
+    isAdmin=(myName.toLowerCase()===ADMIN_NAME.toLowerCase());
+    localStorage.setItem('gg_name',myName);localStorage.setItem('gg_uid',myUserId);
+    localStorage.setItem('gg_level','1');localStorage.setItem('gg_xp','0');
+    saveAccount(myUserId,myName,1,0);
+    applyLang();go('s-menu');connectWS();
+  }catch(e){toast('Error de red');}
   btn.textContent=t('registrarse');btn.disabled=false;
 }
 
 // ── NIVELES ───────────────────────────────────────────────────────
 function xpForLevel(lv){return Math.floor(100*Math.pow(1.4,lv-1));}
-
 function updateLevelUI(){
-  document.getElementById('menu-level').textContent=myLevel;
+  document.getElementById('m-lv').textContent=myLevel;
   var need=xpForLevel(myLevel);
-  document.getElementById('menu-xp').textContent=myXP;
-  document.getElementById('menu-xp-next').textContent=need;
-  document.getElementById('menu-xp-bar').style.width=(myXP/need*100)+'%';
+  document.getElementById('m-xp').textContent=myXP;
+  document.getElementById('m-xp-next').textContent=need;
+  document.getElementById('m-xp-bar').style.width=(Math.min(myXP/need,1)*100)+'%';
 }
-
-function gainXP(amount){
-  myXP+=amount;
+function gainXP(amt){
+  myXP+=amt;
   while(myXP>=xpForLevel(myLevel)){myXP-=xpForLevel(myLevel);myLevel++;showLevelUp(myLevel);}
-  localStorage.setItem('gg_level',myLevel);
-  localStorage.setItem('gg_xp',myXP);
+  localStorage.setItem('gg_level',myLevel);localStorage.setItem('gg_xp',myXP);
+  saveAccount(myUserId,myName,myLevel,myXP);
   updateLevelUI();
 }
-
 function showLevelUp(lv){
   var p=document.getElementById('lvlup');
   document.getElementById('lvlup-txt').textContent=t('subiste')+' '+lv+'!';
   document.getElementById('lvlup-sub').textContent=t('xp_sig')+': '+xpForLevel(lv)+' XP';
-  p.classList.add('show');
-  setTimeout(function(){p.classList.remove('show');},3000);
+  p.classList.add('show');setTimeout(function(){p.classList.remove('show');},3000);
 }
 
 // ── AVATAR ────────────────────────────────────────────────────────
@@ -453,9 +476,7 @@ function drawBall(canvas,color,shape,size){
   ctx.beginPath();ctx.arc(c-r*.28,c-r*.1,r*.12,0,Math.PI*2);ctx.fill();
   ctx.beginPath();ctx.arc(c+r*.28,c-r*.1,r*.12,0,Math.PI*2);ctx.fill();
 }
-
 function renderMenuBall(){drawBall(document.getElementById('menu-ball'),myAvatar.color,myAvatar.shape,90);}
-
 function initAvatar(){
   var cr=document.getElementById('color-row');cr.innerHTML='';
   COLORS.forEach(function(c){
@@ -472,31 +493,62 @@ function initAvatar(){
   });
   drawBall(document.getElementById('av-canvas'),myAvatar.color,myAvatar.shape,120);
 }
-
 function guardarAvatar(){
   localStorage.setItem('gg_avatar',JSON.stringify(myAvatar));
-  renderMenuBall();toast(t('av_guardado'));go('s-menu');
+  renderMenuBall();toast(t('av_ok'));go('s-menu');
 }
 
-// ── RANKING ───────────────────────────────────────────────────────
-async function loadRanking(){
-  document.getElementById('ranking-list').innerHTML='<p style="color:var(--muted);text-align:center;padding:20px;">Cargando...</p>';
-  try{
-    var res=await fetch('/api/ranking');
-    var data=await res.json();
-    var list=document.getElementById('ranking-list');list.innerHTML='';
-    var medals=['🥇','🥈','🥉'];
-    var posCls=['gold','silver','bronze'];
-    data.forEach(function(p,i){
-      var div=document.createElement('div');div.className='rank-item';
-      var pos=document.createElement('div');pos.className='rank-pos'+(i<3?' '+posCls[i]:'');pos.textContent=i<3?medals[i]:(i+1);
-      var ball=document.createElement('canvas');drawBall(ball,myAvatar.color,myAvatar.shape,32);
-      var info=document.createElement('div');info.style.flex='1';
-      info.innerHTML='<div style="font-weight:700;font-size:.9rem;">'+p.name+'</div><div style="font-size:.75rem;color:var(--muted);">Lv.'+p.level+' — '+p.xp+' XP</div>';
-      div.appendChild(pos);div.appendChild(ball);div.appendChild(info);list.appendChild(div);
-    });
-    if(!data.length)list.innerHTML='<p style="color:var(--muted);text-align:center;padding:20px;">No hay jugadores aún</p>';
-  }catch(e){document.getElementById('ranking-list').innerHTML='<p style="color:var(--muted);text-align:center;">Error cargando ranking</p>';}
+// ── APLICAR IDIOMA ────────────────────────────────────────────────
+function changeLang(){myLang=document.getElementById('inp-lang').value;localStorage.setItem('gg_lang',myLang);applyLang();}
+function applyLang(){
+  var set=function(id,k){var el=document.getElementById(id);if(el)el.textContent=t(k);};
+  set('rh1','crear_cuenta');set('rsub1','nombre_unico');set('rl-name','tu_nombre');set('rl-lang','idioma');
+  document.getElementById('rbtn1').textContent=t('continuar');
+  set('rl-have','ya_tienes');document.getElementById('rbtn-switch').textContent=t('cambiar');
+  set('rh2','verificacion');document.getElementById('rbtn2').textContent=t('registrarse');
+  document.getElementById('rbtn-back').textContent='← '+t('volver');
+  set('h-switch','mis_cuentas');document.getElementById('btn-add-account').textContent=t('nueva_cuenta');
+  set('h-account','mi_cuenta');set('al-name','tu_nombre');set('al-id','id_cuenta');
+  set('al-lv','nivel');set('al-xp','xp_total');set('al-wc','vic_civil');set('al-wi','vic_imp');
+  document.getElementById('btn-switch-acct').textContent=t('cambiar_cuenta');
+  set('m-lv-lbl','nivel');
+  document.getElementById('btn-rank').title=t('ranking');document.getElementById('btn-acct').title=t('mi_cuenta');
+  set('h-ranking','ranking');
+  document.getElementById('btn-ref-rank').textContent=t('actualizar');
+  document.getElementById('btn-jugar').textContent=t('jugar');
+  document.getElementById('btn-avatar-m').textContent=t('avatar_btn');
+  set('lbl-lang-m','lang_menu');
+  set('h-jugar','como_jugar');document.getElementById('btn-codigo').textContent=t('unirse_cod');
+  document.getElementById('btn-crear').textContent=t('crear_p');document.getElementById('btn-ver').textContent=t('ver_p');
+  set('h-codigo','unirse_titulo');document.getElementById('btn-unirse').textContent=t('unirse');
+  set('h-crear','crear_titulo');set('lbl-max','max_jug');set('lbl-imp','num_imp');set('lbl-words','palabras');
+  document.getElementById('btn-crear-ok').textContent=t('crear_p');
+  set('h-partidas','partidas');document.getElementById('btn-act').textContent=t('actualizar');
+  set('h-sala','sala');set('sala-share','comparte');set('l-jug','jugadores');set('l-imp','impostores');
+  document.getElementById('btn-iniciar').textContent=t('iniciar');document.getElementById('sala-wait').textContent=t('esperando');
+  set('h-rol','tu_rol');set('rol-hint','no_mostrar');document.getElementById('btn-al-chat').textContent=t('entendido');
+  document.getElementById('btn-proponer').textContent=t('proponer');document.getElementById('btn-enviar').textContent=t('enviar');
+  set('h-voto','votacion');set('voto-hint','vota_para');
+  document.getElementById('btn-continuar').textContent=t('continuar_p');document.getElementById('btn-menu').textContent=t('menu_btn');
+  set('h-avatar','avatar_btn');set('h-color','color');set('h-forma','forma');
+  document.getElementById('btn-save-av').textContent=t('guardar_av');
+  set('vot-sub','vot_sub');document.getElementById('btn-ir-voto').textContent=t('ir_votar');
+  document.querySelectorAll('.bl').forEach(function(el){el.textContent=t('volver');});
+  if(document.getElementById('announcement-input'))document.getElementById('announcement-input').placeholder=t('anuncio_placeholder');
+  document.getElementById('inp-lang').value=myLang;
+  updateLevelUI();
+  // Admin
+  if(isAdmin){
+    document.getElementById('admin-panel').style.display='block';
+  }
+  // Account screen
+  document.getElementById('av-name').textContent=myName;
+  document.getElementById('av-id').textContent=myUserId;
+  document.getElementById('av-lv').textContent=myLevel;
+  document.getElementById('av-xp').textContent=myXP;
+  document.getElementById('av-wc').textContent=myWins.civil;
+  document.getElementById('av-wi').textContent=myWins.imp;
+  drawBall(document.getElementById('acct-ball'),myAvatar.color,myAvatar.shape,70);
 }
 
 // ── NAV ───────────────────────────────────────────────────────────
@@ -505,28 +557,96 @@ function go(id){
   document.getElementById(id).classList.add('active');
   if(id==='s-avatar')initAvatar();
   if(id==='s-ranking')loadRanking();
+  if(id==='s-switch')renderSwitchList();
+  if(id==='s-account')applyLang();
+  if(id==='s-admin')loadAdminUsers();
 }
 
 function toast(msg){
   var el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');
-  clearTimeout(el._t);el._t=setTimeout(function(){el.classList.remove('show');},2600);
+  clearTimeout(el._t);el._t=setTimeout(function(){el.classList.remove('show');},2800);
+}
+function escH(s){return(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+// ── RANKING ───────────────────────────────────────────────────────
+async function loadRanking(){
+  var list=document.getElementById('ranking-list');
+  list.innerHTML='<p style="color:var(--muted);text-align:center;padding:16px">'+t('buscando')+'</p>';
+  try{
+    var res=await fetch('/api/ranking');var data=await res.json();
+    list.innerHTML='';
+    var medals=['🥇','🥈','🥉'],pc=['g','s','b'];
+    if(!data.length){list.innerHTML='<p style="color:var(--muted);text-align:center;padding:16px">No hay jugadores aún</p>';return;}
+    data.forEach(function(p,i){
+      var div=document.createElement('div');div.className='rank-item';
+      var pos=document.createElement('div');pos.className='rank-pos'+(i<3?' '+pc[i]:'');pos.textContent=i<3?medals[i]:(i+1);
+      var ball=document.createElement('canvas');drawBall(ball,myAvatar.color,myAvatar.shape,30);
+      var info=document.createElement('div');info.style.flex='1';
+      info.innerHTML='<div style="font-weight:700;font-size:.88rem">'+escH(p.name)+(p.name.toLowerCase()===myName.toLowerCase()?'<span style="color:var(--purple2);font-size:.7rem;margin-left:4px">(tú)</span>':'')+'</div>'
+        +'<div style="font-size:.72rem;color:var(--muted)">Lv.'+p.level+' — '+p.xp+' XP | '+(p.wins_civil||0)+' civ / '+(p.wins_imp||0)+' imp</div>';
+      div.appendChild(pos);div.appendChild(ball);div.appendChild(info);list.appendChild(div);
+    });
+  }catch(e){list.innerHTML='<p style="color:var(--muted);text-align:center">Error</p>';}
 }
 
-// ── WS ────────────────────────────────────────────────────────────
-var ws,wsReady=false,currentRoom=null,currentRoomData=null,isHost=false,myRole=null,myWord=null;
-var voteTimer=null,discInterval=null,inDisc=false,votingPlayers=null;
+// ── ADMIN ─────────────────────────────────────────────────────────
+function sendAnnouncement(){
+  var txt=document.getElementById('announcement-input').value.trim();
+  if(!txt)return;
+  emit('GLOBAL_ANNOUNCEMENT',{adminId:myUserId,text:txt});
+  document.getElementById('announcement-input').value='';
+  toast('Anuncio enviado');
+}
 
+async function loadAdminUsers(){
+  emit('GET_USERS_LIST',{adminId:myUserId});
+}
+
+function renderAdminUsers(list){
+  var cont=document.getElementById('admin-users-list');cont.innerHTML='';
+  list.forEach(function(u){
+    var div=document.createElement('div');div.className='player-item';
+    div.style.flexDirection='column';div.style.alignItems='flex-start';div.style.gap='6px';
+    var top=document.createElement('div');top.style.cssText='display:flex;width:100%;align-items:center;gap:8px;';
+    var nm=document.createElement('span');nm.style.flex='1';nm.style.fontWeight='700';nm.textContent=u.name+' (Lv.'+u.level+')';
+    top.appendChild(nm);
+    if(u.banned){
+      var ub=document.createElement('button');ub.className='btn btn-green btn-sm';ub.textContent='Desbanear';
+      ub.onclick=(function(uid){return function(){emit('ADMIN_UNBAN',{adminId:myUserId,targetId:uid});setTimeout(loadAdminUsers,500);};})(u.id);
+      top.appendChild(ub);
+    } else if(u.name.toLowerCase()!==ADMIN_NAME.toLowerCase()){
+      var bb=document.createElement('button');bb.className='btn btn-danger btn-sm';bb.textContent='Banear';
+      bb.onclick=(function(uid,uname){return function(){
+        if(confirm('¿Banear a '+uname+'?'))emit('ADMIN_BAN',{adminId:myUserId,targetId:uid});
+        setTimeout(loadAdminUsers,500);
+      };})(u.id,u.name);
+      top.appendChild(bb);
+    }
+    div.appendChild(top);
+    if(u.banned){var ban=document.createElement('div');ban.style.cssText='font-size:.72rem;color:#fca5a5;';ban.textContent='🚫 Baneado';div.appendChild(ban);}
+    cont.appendChild(div);
+  });
+}
+
+// ── WEBSOCKET ─────────────────────────────────────────────────────
 function connectWS(){
+  if(ws&&(ws.readyState===0||ws.readyState===1))return;
   var proto=location.protocol==='https:'?'wss':'ws';
   ws=new WebSocket(proto+'://'+location.host);
-  ws.onopen=function(){wsReady=true;document.getElementById('conn-dot').className='dot on';document.getElementById('conn-txt').textContent=t('conectado');};
+  ws.onopen=function(){
+    wsReady=true;
+    document.getElementById('conn-dot').className='dot on';
+    document.getElementById('conn-txt').textContent=t('conectado');
+    // Register client
+    emit('REGISTER_CLIENT',{userId:myUserId});
+  };
   ws.onclose=function(){wsReady=false;document.getElementById('conn-dot').className='dot off';document.getElementById('conn-txt').textContent=t('desconectado');setTimeout(connectWS,2000);};
   ws.onerror=function(){ws.close();};
   ws.onmessage=function(e){handleMsg(JSON.parse(e.data));};
 }
 
 function emit(type,payload){
-  if(!wsReady){toast(t('sin_conexion'));return;}
+  if(!wsReady){toast(t('sin_con'));return;}
   ws.send(JSON.stringify({type:type,payload:payload}));
 }
 
@@ -535,72 +655,107 @@ function handleMsg(msg){
   switch(tp){
     case 'ROOM_CREATED':currentRoom=p.code;currentRoomData=p.room;isHost=true;abrirSala(p.room);break;
     case 'ROOM_JOINED':currentRoom=p.code;currentRoomData=p.room;isHost=false;abrirSala(p.room);break;
-    case 'ROOM_UPDATE':currentRoomData=p;if(document.getElementById('s-sala').classList.contains('active'))renderSalaPlayers(p);break;
+    case 'ROOM_UPDATE':
+      currentRoomData=p;
+      if(document.getElementById('s-sala').classList.contains('active'))renderSalaPlayers(p);
+      break;
     case 'ROOMS_LIST':renderPartidas(p);break;
-    case 'GAME_STARTED':myRole=p.role;myWord=p.palabra;currentRoomData=p.room;mostrarRol();break;
+    case 'GAME_STARTED':
+      myRole=p.role;myWord=p.palabra;currentRoomData=p.room;mostrarRol();break;
     case 'CHAT_UPDATE':
       if(currentRoomData){currentRoomData.currentTurn=p.currentTurn;currentRoomData.turnOrder=p.turnOrder;}
       addChatMsg(p.msg);updateTurn();break;
-    case 'ALL_SPOKE':showVoteOverlay();break;
+    case 'ALL_SPOKE':
+      // todos hablaron en fase chat, mostrar overlay para proponer votación
+      document.getElementById('vot-big').textContent='🗳️ '+t('votacion');
+      document.getElementById('vot-sub').textContent=t('todos_hablaron')+' '+t('vot_sub');
+      document.getElementById('btn-ir-voto').style.display='none'; // solo overlay info
+      document.getElementById('chat-box').classList.add('fading');
+      setTimeout(function(){document.getElementById('vote-overlay').classList.add('show');},500);
+      break;
     case 'DISCUSSION_START':
-      inDisc=true;startDiscBanner(p.duration);addSysMsg(t('discusion'));break;
+      inDisc=true;
+      document.getElementById('vote-overlay').classList.remove('show');
+      document.getElementById('chat-box').classList.remove('fading');
+      startDiscBanner(p.duration);
+      addSysMsg('💬 '+t('discusion'));
+      break;
     case 'VOTING_START':
+      // *** FIX PRINCIPAL: guardar jugadores y abrir pantalla de votación ***
+      cachedVotePlayers=p.players;
       inDisc=false;clearDiscBanner();
-      votingPlayers=p.players;
-      // Show overlay with button
-      showVoteOverlay();
+      document.getElementById('vote-overlay').classList.remove('show');
+      document.getElementById('chat-box').classList.remove('fading');
+      // Mostrar overlay con botón para ir a votar
+      document.getElementById('vot-big').textContent='🗳️ '+t('votacion');
+      document.getElementById('vot-sub').textContent=t('vot_sub');
+      document.getElementById('btn-ir-voto').style.display='';
+      document.getElementById('chat-box').classList.add('fading');
+      setTimeout(function(){document.getElementById('vote-overlay').classList.add('show');},400);
+      // Si ya estamos en chat, el botón lleva a votar
+      document.getElementById('btn-ir-voto').onclick=function(){abrirVotacion(cachedVotePlayers);};
+      // Si ya estamos en voto screen, abrir directo
+      if(document.getElementById('s-voto').classList.contains('active'))abrirVotacion(cachedVotePlayers);
       break;
     case 'VOTE_UPDATE':actualizarConteos(p.counts);break;
     case 'VOTING_END':
       clearInterval(voteTimer);
       if(p.playerStats&&p.playerStats[myId]){
         var ns=p.playerStats[myId];
-        if(ns.level>myLevel){myLevel=ns.level;myXP=ns.xp;localStorage.setItem('gg_level',myLevel);localStorage.setItem('gg_xp',myXP);}
-        else if(ns.xp>myXP){gainXP(ns.xp-myXP);}
+        if(ns.level>myLevel||ns.xp!==myXP){
+          var xpDiff=(ns.level>myLevel?xpForLevel(myLevel):0)+(ns.xp-myXP);
+          if(xpDiff>0)gainXP(xpDiff);
+        }
       }
       mostrarResultado(p);break;
     case 'LEVEL_UP':showLevelUp(p.level);break;
-    case 'ERROR':toast('⚠️ '+p);break;
+    case 'BANNED':
+      toast('🚫 '+t('baneado'));
+      setTimeout(function(){go('s-menu');},2000);
+      break;
+    case 'ANNOUNCEMENT':
+      document.getElementById('announcement-text').textContent='📢 '+p.from+': '+p.text;
+      document.getElementById('announcement-banner').classList.add('show');
+      setTimeout(function(){document.getElementById('announcement-banner').classList.remove('show');},8000);
+      break;
+    case 'USERS_LIST':renderAdminUsers(p);break;
+    case 'ERROR':
+      if(p==='banned')toast('🚫 '+t('baneado'));
+      else toast('⚠️ '+p);
+      break;
   }
 }
 
 // ── SALA ──────────────────────────────────────────────────────────
 function crearPartida(){
   var raw=document.getElementById('inp-palabras').value.trim();
-  var palabras=raw?raw.split(',').map(function(p){return p.trim();}).filter(Boolean):[];
+  var palabras=raw?raw.split(',').map(function(w){return w.trim();}).filter(Boolean):[];
   emit('CREATE_ROOM',{id:myId,name:myName,avatar:myAvatar,lang:myLang,level:myLevel,xp:myXP,userId:myUserId,
     maxPlayers:parseInt(document.getElementById('inp-max').value)||6,
     numImpostors:parseInt(document.getElementById('inp-imp').value)||1,palabras:palabras});
 }
-
 function unirseConCodigo(){
   var code=document.getElementById('inp-codigo').value.trim().toUpperCase();
-  if(!code){toast(t('escribe_codigo'));return;}
+  if(!code){toast(t('esc_cod'));return;}
   emit('JOIN_ROOM',{id:myId,name:myName,avatar:myAvatar,lang:myLang,level:myLevel,xp:myXP,userId:myUserId,code:code});
 }
-
-function unirseRoom(code){
-  emit('JOIN_ROOM',{id:myId,name:myName,avatar:myAvatar,lang:myLang,level:myLevel,xp:myXP,userId:myUserId,code:code});
-}
-
+function unirseRoom(code){emit('JOIN_ROOM',{id:myId,name:myName,avatar:myAvatar,lang:myLang,level:myLevel,xp:myXP,userId:myUserId,code:code});}
 function pedirPartidas(){
   go('s-partidas');
-  document.getElementById('lista-partidas').innerHTML='<p style="color:var(--muted);text-align:center;padding:20px;">'+t('buscando')+'</p>';
+  document.getElementById('lista-partidas').innerHTML='<p style="color:var(--muted);text-align:center;padding:16px">'+t('buscando')+'</p>';
   emit('LIST_ROOMS',{});
 }
-
 function renderPartidas(list){
   var lista=document.getElementById('lista-partidas');lista.innerHTML='';
-  if(!list.length){lista.innerHTML='<p style="color:var(--muted);text-align:center;padding:20px;">'+t('no_partidas')+'</p>';return;}
+  if(!list.length){lista.innerHTML='<p style="color:var(--muted);text-align:center;padding:16px">'+t('no_partidas')+'</p>';return;}
   list.forEach(function(r){
     var div=document.createElement('div');div.className='partida-item';
-    div.innerHTML='<div><strong style="font-family:Boogaloo,cursive;font-size:1.3rem;letter-spacing:3px;">'+r.code+'</strong><div style="font-size:.78rem;color:var(--muted);">'+r.playerCount+'/'+r.maxPlayers+' '+t('jugadores')+'</div></div>';
+    div.innerHTML='<div><strong style="font-family:Boogaloo,cursive;font-size:1.3rem;letter-spacing:3px">'+r.code+'</strong><div style="font-size:.75rem;color:var(--muted)">'+r.playerCount+'/'+r.maxPlayers+' '+t('jugadores')+'</div></div>';
     var btn=document.createElement('button');btn.className='btn btn-primary btn-sm';btn.textContent=t('unirse');
     btn.onclick=(function(c){return function(){unirseRoom(c);};})(r.code);
     div.appendChild(btn);lista.appendChild(div);
   });
 }
-
 function abrirSala(room){
   document.getElementById('sala-code').textContent=room.code;
   document.getElementById('sala-imps').textContent=room.numImpostors;
@@ -608,18 +763,17 @@ function abrirSala(room){
   document.getElementById('sala-wait').style.display=isHost?'none':'block';
   renderSalaPlayers(room);go('s-sala');
 }
-
 function renderSalaPlayers(room){
   var players=room.players;var keys=Object.keys(players);
   document.getElementById('sala-count').textContent=keys.length+'/'+room.maxPlayers;
   var cont=document.getElementById('sala-players');cont.innerHTML='';
   keys.forEach(function(id){
     var p=players[id];var div=document.createElement('div');div.className='player-item';
-    var ball=document.createElement('canvas');drawBall(ball,p.avatar.color,p.avatar.shape,34);div.appendChild(ball);
+    var ball=document.createElement('canvas');drawBall(ball,p.avatar.color,p.avatar.shape,32);div.appendChild(ball);
     var info=document.createElement('div');info.style.flex='1';
-    var row=document.createElement('div');row.style.cssText='display:flex;align-items:center;gap:6px;';
+    var row=document.createElement('div');row.style.cssText='display:flex;align-items:center;gap:5px';
     var nm=document.createElement('span');nm.className='player-name';nm.textContent=p.name;row.appendChild(nm);
-    var lv=document.createElement('span');lv.className='level-badge';lv.textContent='Lv.'+(p.level||1);row.appendChild(lv);
+    var lv=document.createElement('span');lv.className='lv-badge';lv.textContent='Lv.'+(p.level||1);row.appendChild(lv);
     if(id===room.host){var cr=document.createElement('span');cr.textContent='👑';row.appendChild(cr);}
     info.appendChild(row);
     var xb=document.createElement('div');xb.className='xp-bar';
@@ -627,16 +781,15 @@ function renderSalaPlayers(room){
     xb.appendChild(xf);info.appendChild(xb);div.appendChild(info);cont.appendChild(div);
   });
 }
-
 function iniciarPartida(){emit('START_GAME',{id:myId,code:currentRoom});}
 
 // ── ROL ───────────────────────────────────────────────────────────
 function mostrarRol(){
   var box=document.getElementById('rol-box');
   if(myRole==='impostor')
-    box.innerHTML='<div class="role-label">'+t('tu_rol')+'</div><div class="imp">👻 '+t('impostor')+'</div><p style="color:var(--muted);font-size:.82rem;margin-top:14px;">'+(myLang==='en'?"Pretend you know the word!":myLang==='pt'?'Finja que sabe a palavra!':'¡Finge que sabes la palabra!')+'</p>';
+    box.innerHTML='<div class="rl">'+t('tu_rol')+'</div><div class="im">👻 '+t('impostor')+'</div><p style="color:var(--muted);font-size:.8rem;margin-top:12px">'+(myLang==='en'?"Pretend you know the word!":myLang==='pt'?'Finja que sabe a palavra!':'¡Finge que sabes la palabra!')+'</p>';
   else
-    box.innerHTML='<div class="role-label">'+(myLang==='en'?'The word is':myLang==='pt'?'A palavra é':'La palabra es')+'</div><div class="word">'+myWord+'</div><p style="color:var(--muted);font-size:.82rem;margin-top:14px;">'+(myLang==='en'?"You're civilian!":myLang==='pt'?'Você é civil!':'¡Eres civil!')+'</p>';
+    box.innerHTML='<div class="rl">'+(myLang==='en'?'The word is':myLang==='pt'?'A palavra é':'La palabra es')+'</div><div class="wd">'+escH(myWord)+'</div><p style="color:var(--muted);font-size:.8rem;margin-top:12px">'+(myLang==='en'?"You're civilian!":myLang==='pt'?'Você é civil!':'¡Eres civil!')+'</p>';
   go('s-rol');
 }
 
@@ -649,88 +802,63 @@ function iniciarChat(){
   inDisc=false;updateTurn();
   if(currentRoomData)document.getElementById('chat-info').textContent=Object.keys(currentRoomData.players).length+' '+t('jugadores');
 }
-
 function addChatMsg(msg){
   var box=document.getElementById('chat-box');
-  var div=document.createElement('div');
-  div.className='chat-msg '+(msg.id===myId?'me':'other');
-  var senderHtml='<div class="sender"><span>'+escHtml(msg.name)+'</span><span class="level-badge" style="font-size:.65rem;">Lv.'+(msg.level||1)+'</span></div>';
-  var txHtml=escHtml(msg.text);
-  var trHtml=msg.translated?'<div class="translated">'+t('traducido_de')+' '+LANG_NAMES[msg.lang||'es']+': '+escHtml(msg.originalText||'')+'</div>':'';
-  div.innerHTML=senderHtml+txHtml+trHtml;
-  box.appendChild(div);box.scrollTop=box.scrollHeight;
+  var div=document.createElement('div');div.className='chat-msg '+(msg.id===myId?'me':'other');
+  var sh='<div class="sender"><span>'+escH(msg.name)+'</span><span class="lv-badge" style="font-size:.62rem">Lv.'+(msg.level||1)+'</span></div>';
+  var tx=escH(msg.text);
+  var tr=msg.translated?'<div class="translated">'+t('trad_de')+' '+LN[msg.lang||'es']+': '+escH(msg.originalText||'')+'</div>':'';
+  div.innerHTML=sh+tx+tr;box.appendChild(div);box.scrollTop=box.scrollHeight;
 }
-
 function addSysMsg(text){
   var box=document.getElementById('chat-box');
   var div=document.createElement('div');div.className='chat-msg system';div.textContent=text;
   box.appendChild(div);box.scrollTop=box.scrollHeight;
 }
-
-function escHtml(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-
 function updateTurn(){
   if(!currentRoomData)return;
   var order=currentRoomData.turnOrder;
   var current=order[currentRoomData.currentTurn%order.length];
-  var isMyTurn=current===myId;
+  var isMine=current===myId;
   var box=document.getElementById('turn-box');
-  if(inDisc){box.className='turn-box discussion';box.innerHTML=t('discusion');document.getElementById('chat-inp').disabled=false;return;}
-  box.className='turn-box'+(isMyTurn?' myturn':'');
+  if(inDisc){box.className='turn-box disc';box.innerHTML=t('discusion');document.getElementById('chat-inp').disabled=false;return;}
+  box.className='turn-box'+(isMine?' myturn':'');
   var p=currentRoomData.players[current];
-  box.innerHTML=isMyTurn?'🎯 '+t('tu_turno'):t('turno_de')+': <strong>'+(p?p.name:'?')+'</strong>';
-  document.getElementById('chat-inp').disabled=!isMyTurn;
+  box.innerHTML=isMine?'🎯 '+t('tu_turno'):t('turno_de')+': <strong>'+(p?escH(p.name):'?')+'</strong>';
+  document.getElementById('chat-inp').disabled=!isMine;
 }
-
 function enviarMsg(){
   var inp=document.getElementById('chat-inp');var text=inp.value.trim();if(!text)return;
   if(!inDisc&&currentRoomData){
-    var order=currentRoomData.turnOrder;
-    var current=order[currentRoomData.currentTurn%order.length];
+    var order=currentRoomData.turnOrder;var current=order[currentRoomData.currentTurn%order.length];
     if(current!==myId){toast(t('no_turno'));return;}
   }
   emit('CHAT_MSG',{id:myId,code:currentRoom,text:text,lang:myLang});inp.value='';
 }
-
 function proponerVoto(){emit('PROPOSE_VOTE',{id:myId,code:currentRoom});}
 
-// ── VOTE OVERLAY ──────────────────────────────────────────────────
-function showVoteOverlay(){
-  var chatBox=document.getElementById('chat-box');
-  var overlay=document.getElementById('vote-overlay');
-  chatBox.classList.add('fading');
-  setTimeout(function(){overlay.classList.add('show');},500);
-  // If it's from VOTING_START, clicking the button opens vote screen
-  document.getElementById('btn-ir-voto').onclick=function(){
-    if(votingPlayers){abrirVotacion(votingPlayers);}
-    else{go('s-voto');}
-  };
-}
-
 // ── DISCUSIÓN ─────────────────────────────────────────────────────
-function startDiscBanner(duration){
+function startDiscBanner(dur){
   var banner=document.getElementById('disc-banner');banner.style.display='block';
-  var rem=duration;
-  clearInterval(discInterval);
+  var rem=dur;clearInterval(discInterval);
   discInterval=setInterval(function(){rem--;banner.textContent=t('discusion')+' — '+rem+'s';if(rem<=0){clearInterval(discInterval);banner.style.display='none';}},1000);
-  banner.textContent=t('discusion')+' — '+duration+'s';
-  document.getElementById('chat-inp').disabled=false;
-  updateTurn();
+  banner.textContent=t('discusion')+' — '+dur+'s';
+  document.getElementById('chat-inp').disabled=false;updateTurn();
 }
-
 function clearDiscBanner(){clearInterval(discInterval);document.getElementById('disc-banner').style.display='none';inDisc=false;}
 
 // ── VOTACIÓN ──────────────────────────────────────────────────────
 function abrirVotacion(players){
+  if(!players||!Object.keys(players).length){toast('Error: sin jugadores para votar');return;}
   go('s-voto');
   var grid=document.getElementById('vote-grid');grid.innerHTML='';
   Object.keys(players).forEach(function(id){
     if(id===myId)return;
     var p=players[id];
     var btn=document.createElement('div');btn.className='vote-btn';btn.id='vb_'+id;
-    var ball=document.createElement('canvas');drawBall(ball,p.avatar.color,p.avatar.shape,46);btn.appendChild(ball);
-    var nm=document.createElement('div');nm.className='vname';nm.textContent=p.name;btn.appendChild(nm);
-    var lv=document.createElement('div');lv.style.cssText='font-size:.7rem;color:var(--gold);margin-top:2px;';lv.textContent='Lv.'+(p.level||1);btn.appendChild(lv);
+    var ball=document.createElement('canvas');drawBall(ball,p.avatar.color,p.avatar.shape,44);btn.appendChild(ball);
+    var nm=document.createElement('div');nm.className='vname';nm.textContent=escH(p.name);btn.appendChild(nm);
+    var lv=document.createElement('div');lv.style.cssText='font-size:.68rem;color:var(--gold);margin-top:2px';lv.textContent='Lv.'+(p.level||1);btn.appendChild(lv);
     var cnt=document.createElement('div');cnt.className='vcount';cnt.id='vc_'+id;cnt.textContent='0 votos';btn.appendChild(cnt);
     btn.onclick=(function(tid){return function(){emitirVoto(tid);};})(id);
     grid.appendChild(btn);
@@ -740,13 +868,11 @@ function abrirVotacion(players){
   if(voteTimer)clearInterval(voteTimer);
   voteTimer=setInterval(function(){secs--;fill.style.width=(secs/12*100)+'%';txt.textContent=secs+'s';if(secs<=0)clearInterval(voteTimer);},1000);
 }
-
 function emitirVoto(tid){
   document.querySelectorAll('.vote-btn').forEach(function(b){b.classList.remove('voted');});
   var btn=document.getElementById('vb_'+tid);if(btn)btn.classList.add('voted');
   emit('CAST_VOTE',{id:myId,code:currentRoom,target:tid});
 }
-
 function actualizarConteos(counts){
   Object.keys(counts).forEach(function(id){
     var el=document.getElementById('vc_'+id);
@@ -765,10 +891,14 @@ function mostrarResultado(data){
     document.getElementById('btn-continuar').style.display='block';
   }else{
     var isImp=data.role==='impostor';
-    box.innerHTML='<div class="big">'+(isImp?'👻':'😶')+'</div><h2>'+escHtml(data.expelledName)+' '+t('expulsado')+'</h2>'
-      +'<p style="margin:14px 0;">'+t('era')+': <span class="badge '+(isImp?'badge-imp':'badge-civ')+'">'+(isImp?t('impostor'):t('civil'))+'</span></p>'
-      +'<p style="color:var(--muted);font-size:.88rem;">'+(isImp?t('civiles_ganan'):t('sigue'))+'</p>';
+    box.innerHTML='<div class="big">'+(isImp?'👻':'😶')+'</div>'
+      +'<h2>'+escH(data.expelledName)+' '+t('expulsado')+'</h2>'
+      +'<p style="margin:12px 0">'+t('era')+': <span class="badge '+(isImp?'badge-imp':'badge-civ')+'">'+(isImp?t('impostor'):t('civil'))+'</span></p>'
+      +'<p style="color:var(--muted);font-size:.85rem">'+(isImp?t('civiles_ganan'):t('sigue'))+'</p>';
     document.getElementById('btn-continuar').style.display=isImp?'none':'block';
+    // Update local wins
+    if(isImp&&myRole==='civil'){myWins.civil++;localStorage.setItem('gg_wc',myWins.civil);}
+    if(data.impostorWin&&myRole==='impostor'){myWins.imp++;localStorage.setItem('gg_wi',myWins.imp);}
   }
   if(currentRoomData&&data.expelled){
     delete currentRoomData.players[data.expelled];
@@ -776,17 +906,15 @@ function mostrarResultado(data){
   }
   go('s-resultado');
 }
-
 function continuarJuego(){
   if(currentRoomData){currentRoomData.chat=[];currentRoomData.currentTurn=0;}
-  inDisc=false;clearDiscBanner();votingPlayers=null;
+  inDisc=false;clearDiscBanner();cachedVotePlayers=null;
   document.getElementById('chat-box').classList.remove('fading');
   document.getElementById('vote-overlay').classList.remove('show');
   go('s-chat');iniciarChat();
 }
-
 function volverMenu(){
-  currentRoom=null;isHost=false;myRole=null;myWord=null;inDisc=false;votingPlayers=null;
+  currentRoom=null;isHost=false;myRole=null;myWord=null;inDisc=false;cachedVotePlayers=null;
   clearDiscBanner();if(voteTimer)clearInterval(voteTimer);
   document.getElementById('chat-box').classList.remove('fading');
   document.getElementById('vote-overlay').classList.remove('show');
@@ -796,11 +924,10 @@ function volverMenu(){
 // ── INIT ──────────────────────────────────────────────────────────
 document.getElementById('inp-lang').value=myLang;
 document.getElementById('reg-lang').value=myLang;
-applyLang();
-renderMenuBall();
-// Si ya tiene cuenta, saltar registro
-if(myUserId&&myName){go('s-menu');}
-connectWS();
+isAdmin=(myName.toLowerCase()===ADMIN_NAME.toLowerCase());
+applyLang();renderMenuBall();
+if(myUserId&&myName){go('s-menu');connectWS();}
+else{go('s-reg');}
 </script>
 </body>
 </html>
