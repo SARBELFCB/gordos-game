@@ -228,6 +228,15 @@ label{font-size:.8rem;color:var(--muted);margin-bottom:3px;display:block;font-we
   <h2 id="h-ranking">🏆 Ranking</h2>
   <div id="ranking-list" style="width:100%"></div>
   <button class="btn btn-secondary" onclick="loadRanking()" style="margin-top:8px" id="btn-ref-rank">Actualizar</button>
+  <div class="card" style="margin-top:14px">
+    <h3 id="h-buscar-jug">🔍 Buscar jugador</h3>
+    <p style="font-size:.78rem;color:var(--muted);margin-bottom:8px">Busca por nombre o ID de cuenta</p>
+    <div style="display:flex;gap:8px;margin-bottom:10px">
+      <input type="text" id="search-player-inp" placeholder="Nombre o ID..." style="margin:0;flex:1" onkeydown="if(event.key==='Enter')searchPlayer()">
+      <button class="btn btn-primary btn-sm" onclick="searchPlayer()" style="width:auto;margin:0">Buscar</button>
+    </div>
+    <div id="search-player-result"></div>
+  </div>
 </div>
 
 <!-- AVATAR -->
@@ -623,20 +632,55 @@ async function loadRanking(){
   var list=document.getElementById('ranking-list');
   list.innerHTML='<p style="color:var(--muted);text-align:center;padding:16px">'+t('buscando')+'</p>';
   try{
-    var res=await fetch('/api/ranking');var data=await res.json();
+    var res=await fetch('/api/ranking');
+    var json=await res.json();
+    var data=json.data||json||[];
     list.innerHTML='';
     var medals=['🥇','🥈','🥉'],pc=['g','s','b'];
-    if(!data.length){list.innerHTML='<p style="color:var(--muted);text-align:center;padding:16px">No hay jugadores aún</p>';return;}
+    if(!data.length){
+      list.innerHTML='<p style="color:var(--muted);text-align:center;padding:16px">No hay jugadores registrados aún</p>';
+      return;
+    }
     data.forEach(function(p,i){
       var div=document.createElement('div');div.className='rank-item';
       var pos=document.createElement('div');pos.className='rank-pos'+(i<3?' '+pc[i]:'');pos.textContent=i<3?medals[i]:(i+1);
-      var ball=document.createElement('canvas');drawBall(ball,myAvatar.color,myAvatar.shape,30);
+      var ball=document.createElement('canvas');drawBall(ball,myAvatar.color,myAvatar.shape,30,myAvatar.hat||'none');
       var info=document.createElement('div');info.style.flex='1';
-      info.innerHTML='<div style="font-weight:700;font-size:.88rem">'+escH(p.name)+(p.name.toLowerCase()===myName.toLowerCase()?'<span style="color:var(--purple2);font-size:.7rem;margin-left:4px">(tú)</span>':'')+'</div>'
-        +'<div style="font-size:.72rem;color:var(--muted)">Lv.'+p.level+' — '+p.xp+' XP | '+(p.wins_civil||0)+' civ / '+(p.wins_imp||0)+' imp</div>';
-      div.appendChild(pos);div.appendChild(ball);div.appendChild(info);list.appendChild(div);
+      var isMe=(p.name||'').toLowerCase()===myName.toLowerCase();
+      info.innerHTML='<div style="font-weight:700;font-size:.88rem;color:var(--text)">'+escH(p.name||'?')
+        +(isMe?'<span style="color:var(--purple2);font-size:.68rem;margin-left:5px">(tú)</span>':'')+'</div>'
+        +'<div style="font-size:.72rem;color:var(--muted)">Lv.'+(p.level||1)+' — '+(p.xp||0)+' XP | '+(p.wins_civil||0)+' civ / '+(p.wins_imp||0)+' imp</div>';
+      div.appendChild(pos);div.appendChild(ball);div.appendChild(info);
+      list.appendChild(div);
     });
-  }catch(e){list.innerHTML='<p style="color:var(--muted);text-align:center">Error</p>';}
+    if(json.total!==undefined){
+      var tot=document.createElement('p');
+      tot.style.cssText='font-size:.72rem;color:var(--muted);text-align:center;margin-top:10px;';
+      tot.textContent='Total registrados: '+json.total;
+      list.appendChild(tot);
+    }
+  }catch(e){
+    document.getElementById('ranking-list').innerHTML='<p style="color:var(--muted);text-align:center;padding:16px">Error cargando ranking: '+e.message+'</p>';
+  }
+}
+
+async function searchPlayer(){
+  var q=document.getElementById('search-player-inp').value.trim();
+  if(!q)return;
+  var res=document.getElementById('search-player-result');
+  res.innerHTML='<p style="color:var(--muted);font-size:.82rem">Buscando...</p>';
+  try{
+    var r=await fetch('/api/user/'+encodeURIComponent(q));
+    var d=await r.json();
+    if(!d.ok){res.innerHTML='<p style="color:var(--red);font-size:.82rem">Jugador no encontrado</p>';return;}
+    var u=d.user;
+    res.innerHTML='<div class="account-stat"><span class="label">Nombre</span><span class="value">'+escH(u.name)+'</span></div>'
+      +'<div class="account-stat"><span class="label">ID</span><span class="value" style="font-size:.68rem;word-break:break-all">'+escH(u.id)+'</span></div>'
+      +'<div class="account-stat"><span class="label">Nivel</span><span class="value">'+u.level+'</span></div>'
+      +'<div class="account-stat"><span class="label">XP</span><span class="value">'+u.xp+'</span></div>'
+      +'<div class="account-stat"><span class="label">Victorias civil/imp</span><span class="value">'+u.wins_civil+' / '+u.wins_imp+'</span></div>'
+      +(u.banned?'<div style="color:var(--red);font-size:.8rem;margin-top:6px">🚫 Baneado</div>':'');
+  }catch(e){res.innerHTML='<p style="color:var(--red);font-size:.82rem">Error</p>';}
 }
 
 // ── ADMIN ─────────────────────────────────────────────────────────
