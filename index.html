@@ -65,6 +65,9 @@ input:focus,textarea:focus,select:focus{border-color:var(--purple);box-shadow:0 
 .shape-opt{width:52px;height:52px;cursor:pointer;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;background:var(--card2);border-radius:10px;transition:all .15s}
 .shape-opt.sel{border-color:var(--purple2);background:rgba(139,92,246,.15)}
 .shape-row{display:flex;gap:10px;justify-content:center;margin-bottom:16px}
+.hat-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:16px}
+.hat-opt{width:56px;height:56px;cursor:pointer;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;background:var(--card2);border-radius:10px;transition:all .15s}
+.hat-opt.sel{border-color:var(--purple2);background:rgba(139,92,246,.15)}
 .turn-box{text-align:center;padding:9px 14px;background:var(--card);border-radius:12px;margin-bottom:10px;font-size:.85rem;width:100%;border:1.5px solid var(--border)}
 .turn-box.myturn{background:rgba(139,92,246,.2);border-color:var(--purple);color:var(--purple2);font-weight:700}
 .turn-box.disc{background:rgba(16,185,129,.15);border-color:var(--green);color:#6ee7b7;font-weight:700}
@@ -235,6 +238,7 @@ label{font-size:.8rem;color:var(--muted);margin-bottom:3px;display:block;font-we
   <div class="card">
     <h3 id="h-color">Color</h3><div class="color-row" id="color-row"></div>
     <h3 id="h-forma">Forma</h3><div class="shape-row" id="shape-row"></div>
+    <h3 id="h-sombrero">Sombrero</h3><div class="hat-row" id="hat-row"></div>
   </div>
   <button class="btn btn-primary" id="btn-save-av" onclick="guardarAvatar()">Guardar avatar</button>
 </div>
@@ -342,9 +346,9 @@ label{font-size:.8rem;color:var(--muted);margin-bottom:3px;display:block;font-we
 
 <script>
 // ── TEXTOS ────────────────────────────────────────────────────────
-var TXT={es:{crear_cuenta:'Crear cuenta',nombre_unico:'Elige un nombre único para jugar',tu_nombre:'Tu nombre',idioma:'Idioma',continuar:'Continuar →',verificacion:'Verificación',registrarse:'Registrarse',volver:'Volver',ya_tienes:'¿Ya tienes cuenta?',cambiar:'Cambiar de cuenta',mis_cuentas:'Mis cuentas',nueva_cuenta:'+ Nueva cuenta',mi_cuenta:'Mi cuenta',nivel:'Nivel',xp_total:'XP total',vic_civil:'Victorias como Civil',vic_imp:'Victorias como Impostor',id_cuenta:'ID de cuenta',cambiar_cuenta:'🔄 Cambiar cuenta',ranking:'🏆 Ranking',jugar:'🎮 Jugar',avatar_btn:'🎨 Avatar',lang_menu:'Idioma',como_jugar:'¿Cómo quieres jugar?',unirse_cod:'🔑 Unirse con código',crear_p:'✨ Crear partida',ver_p:'🔍 Ver partidas',unirse_titulo:'Unirse con código',unirse:'Unirse',crear_titulo:'Crear partida',max_jug:'Máximo de jugadores',num_imp:'Impostores',palabras:'Palabras (separadas por coma)',partidas:'Partidas disponibles',actualizar:'Actualizar',sala:'Sala de espera',comparte:'Comparte este código con tus amigos',jugadores:'Jugadores',impostores:'Impostores',iniciar:'▶ Iniciar',esperando:'Esperando al anfitrión...',tu_rol:'Tu rol',no_mostrar:'¡No muestres esto a nadie!',entendido:'Entendido, ir al chat',proponer:'🗳️ Proponer votación',enviar:'Enviar',votacion:'¡Votación!',vota_para:'Vota para expulsar a alguien',continuar_p:'Continuar partida',menu_btn:'Volver al menú',discusion:'💬 Discusión',tu_turno:'¡Es tu turno!',turno_de:'Turno de',impostor:'IMPOSTOR',civil:'CIVIL',civiles_ganan:'¡Los civiles ganaron! 🎉',imp_ganan:'¡Los impostores ganan! 💀',sigue:'El impostor sigue entre ustedes...',expulsado:'fue expulsado',era:'Era',empate:'Empate — nadie fue expulsado',color:'Color',forma:'Forma',guardar_av:'Guardar avatar',buscando:'Buscando...',no_partidas:'No hay partidas disponibles',conectado:'Conectado',conectando:'Conectando...',desconectado:'Desconectado',trad_de:'Traducido del',todos_hablaron:'¡Todos hablaron!',xp_sig:'XP para siguiente nivel',subiste:'¡Subiste al nivel',vot_sub:'¡Todos han hablado! La votación puede comenzar',ir_votar:'Ir a votar →',no_turno:'No es tu turno',sin_con:'Sin conexión',al_menos_2:'Necesitas al menos 2 jugadores',esc_cod:'Escribe un código',av_ok:'¡Avatar guardado!',nom_corto:'Nombre muy corto (mínimo 2)',nom_tomado:'Ese nombre ya está en uso',cod_mal:'Código incorrecto',cod_exp:'Código expirado',baneado:'Has sido baneado. No puedes unirte a partidas.',anuncio_placeholder:'Escribe un anuncio global...'},
-pt:{crear_cuenta:'Criar conta',nombre_unico:'Escolha um nome único para jogar',tu_nombre:'Seu nome',idioma:'Idioma',continuar:'Continuar →',verificacion:'Verificação',registrarse:'Registrar',volver:'Voltar',ya_tienes:'Já tem conta?',cambiar:'Trocar de conta',mis_cuentas:'Minhas contas',nueva_cuenta:'+ Nova conta',mi_cuenta:'Minha conta',nivel:'Nível',xp_total:'XP total',vic_civil:'Vitórias como Civil',vic_imp:'Vitórias como Impostor',id_cuenta:'ID da conta',cambiar_cuenta:'🔄 Trocar conta',ranking:'🏆 Ranking',jugar:'🎮 Jogar',avatar_btn:'🎨 Avatar',lang_menu:'Idioma',como_jugar:'Como quer jogar?',unirse_cod:'🔑 Entrar com código',crear_p:'✨ Criar partida',ver_p:'🔍 Ver partidas',unirse_titulo:'Entrar com código',unirse:'Entrar',crear_titulo:'Criar partida',max_jug:'Máximo de jogadores',num_imp:'Impostores',palabras:'Palavras (separadas por vírgula)',partidas:'Partidas disponíveis',actualizar:'Atualizar',sala:'Sala de espera',comparte:'Compartilhe este código com seus amigos',jugadores:'Jogadores',impostores:'Impostores',iniciar:'▶ Iniciar',esperando:'Aguardando o anfitrião...',tu_rol:'Seu papel',no_mostrar:'Não mostre isso a ninguém!',entendido:'Entendido, ir ao chat',proponer:'🗳️ Propor votação',enviar:'Enviar',votacion:'Votação!',vota_para:'Vote para expulsar alguém',continuar_p:'Continuar partida',menu_btn:'Voltar ao menu',discusion:'💬 Discussão',tu_turno:'É a sua vez!',turno_de:'Vez de',impostor:'IMPOSTOR',civil:'CIVIL',civiles_ganan:'Os civis ganharam! 🎉',imp_ganan:'Os impostores vencem! 💀',sigue:'O impostor ainda está entre vocês...',expulsado:'foi expulso',era:'Era',empate:'Empate — ninguém foi expulso',color:'Cor',forma:'Forma',guardar_av:'Salvar avatar',buscando:'Procurando...',no_partidas:'Nenhuma partida disponível',conectado:'Conectado',conectando:'Conectando...',desconectado:'Desconectado',trad_de:'Traduzido do',todos_hablaron:'Todos falaram!',xp_sig:'XP para próximo nível',subiste:'Você subiu ao nível',vot_sub:'Todos falaram! A votação pode começar',ir_votar:'Ir votar →',no_turno:'Não é a sua vez',sin_con:'Sem conexão',al_menos_2:'Precisa de pelo menos 2 jogadores',esc_cod:'Digite um código',av_ok:'Avatar salvo!',nom_corto:'Nome muito curto (mínimo 2)',nom_tomado:'Esse nome já está em uso',cod_mal:'Código incorreto',cod_exp:'Código expirado',baneado:'Você foi banido. Não pode entrar em partidas.',anuncio_placeholder:'Escreva um anúncio global...'},
-en:{crear_cuenta:'Create account',nombre_unico:'Choose a unique name to play',tu_nombre:'Your name',idioma:'Language',continuar:'Continue →',verificacion:'Verification',registrarse:'Register',volver:'Back',ya_tienes:'Already have an account?',cambiar:'Switch account',mis_cuentas:'My accounts',nueva_cuenta:'+ New account',mi_cuenta:'My account',nivel:'Level',xp_total:'Total XP',vic_civil:'Wins as Civilian',vic_imp:'Wins as Impostor',id_cuenta:'Account ID',cambiar_cuenta:'🔄 Switch account',ranking:'🏆 Ranking',jugar:'🎮 Play',avatar_btn:'🎨 Avatar',lang_menu:'Language',como_jugar:'How do you want to play?',unirse_cod:'🔑 Join with code',crear_p:'✨ Create game',ver_p:'🔍 Browse games',unirse_titulo:'Join with code',unirse:'Join',crear_titulo:'Create game',max_jug:'Max players',num_imp:'Impostors',palabras:'Words (comma separated)',partidas:'Available games',actualizar:'Refresh',sala:'Waiting room',comparte:'Share this code with your friends',jugadores:'Players',impostores:'Impostors',iniciar:'▶ Start',esperando:'Waiting for host...',tu_rol:'Your role',no_mostrar:"Don't show this to anyone!",entendido:'Got it, go to chat',proponer:'🗳️ Propose vote',enviar:'Send',votacion:'Vote!',vota_para:'Vote to eliminate someone',continuar_p:'Continue game',menu_btn:'Back to menu',discusion:'💬 Discussion',tu_turno:'Your turn!',turno_de:'Turn of',impostor:'IMPOSTOR',civil:'CIVILIAN',civiles_ganan:'Civilians win! 🎉',imp_ganan:'Impostors win! 💀',sigue:'The impostor is still among you...',expulsado:'was expelled',era:'Was',empate:'Tie — nobody was expelled',color:'Color',forma:'Shape',guardar_av:'Save avatar',buscando:'Looking...',no_partidas:'No games available',conectado:'Connected',conectando:'Connecting...',desconectado:'Disconnected',trad_de:'Translated from',todos_hablaron:'Everyone spoke!',xp_sig:'XP to next level',subiste:'You leveled up to level',vot_sub:'Everyone spoke! Voting can begin',ir_votar:'Go vote →',no_turno:"Not your turn",sin_con:'No connection',al_menos_2:'You need at least 2 players',esc_cod:'Enter a code',av_ok:'Avatar saved!',nom_corto:'Name too short (min 2)',nom_tomado:'That name is already taken',cod_mal:'Incorrect code',cod_exp:'Code expired',baneado:'You have been banned. You cannot join games.',anuncio_placeholder:'Write a global announcement...'}};
+var TXT={es:{crear_cuenta:'Crear cuenta',nombre_unico:'Elige un nombre único para jugar',tu_nombre:'Tu nombre',idioma:'Idioma',continuar:'Continuar →',verificacion:'Verificación',registrarse:'Registrarse',volver:'Volver',ya_tienes:'¿Ya tienes cuenta?',cambiar:'Cambiar de cuenta',mis_cuentas:'Mis cuentas',nueva_cuenta:'+ Nueva cuenta',mi_cuenta:'Mi cuenta',nivel:'Nivel',xp_total:'XP total',vic_civil:'Victorias como Civil',vic_imp:'Victorias como Impostor',id_cuenta:'ID de cuenta',cambiar_cuenta:'🔄 Cambiar cuenta',ranking:'🏆 Ranking',jugar:'🎮 Jugar',avatar_btn:'🎨 Avatar',lang_menu:'Idioma',como_jugar:'¿Cómo quieres jugar?',unirse_cod:'🔑 Unirse con código',crear_p:'✨ Crear partida',ver_p:'🔍 Ver partidas',unirse_titulo:'Unirse con código',unirse:'Unirse',crear_titulo:'Crear partida',max_jug:'Máximo de jugadores',num_imp:'Impostores',palabras:'Palabras (separadas por coma)',partidas:'Partidas disponibles',actualizar:'Actualizar',sala:'Sala de espera',comparte:'Comparte este código con tus amigos',jugadores:'Jugadores',impostores:'Impostores',iniciar:'▶ Iniciar',esperando:'Esperando al anfitrión...',tu_rol:'Tu rol',no_mostrar:'¡No muestres esto a nadie!',entendido:'Entendido, ir al chat',proponer:'🗳️ Proponer votación',enviar:'Enviar',votacion:'¡Votación!',vota_para:'Vota para expulsar a alguien',continuar_p:'Continuar partida',menu_btn:'Volver al menú',discusion:'💬 Discusión',tu_turno:'¡Es tu turno!',turno_de:'Turno de',impostor:'IMPOSTOR',civil:'CIVIL',civiles_ganan:'¡Los civiles ganaron! 🎉',imp_ganan:'¡Los impostores ganan! 💀',sigue:'El impostor sigue entre ustedes...',expulsado:'fue expulsado',era:'Era',empate:'Empate — nadie fue expulsado',color:'Color',forma:'Forma',guardar_av:'Guardar avatar',sombrero:'Sombrero',buscando:'Buscando...',no_partidas:'No hay partidas disponibles',conectado:'Conectado',conectando:'Conectando...',desconectado:'Desconectado',trad_de:'Traducido del',todos_hablaron:'¡Todos hablaron!',xp_sig:'XP para siguiente nivel',subiste:'¡Subiste al nivel',vot_sub:'¡Todos han hablado! La votación puede comenzar',ir_votar:'Ir a votar →',no_turno:'No es tu turno',sin_con:'Sin conexión',al_menos_2:'Necesitas al menos 2 jugadores',esc_cod:'Escribe un código',av_ok:'¡Avatar guardado!',nom_corto:'Nombre muy corto (mínimo 2)',nom_tomado:'Ese nombre ya está en uso',cod_mal:'Código incorrecto',cod_exp:'Código expirado',baneado:'Has sido baneado. No puedes unirte a partidas.',anuncio_placeholder:'Escribe un anuncio global...'},
+pt:{crear_cuenta:'Criar conta',nombre_unico:'Escolha um nome único para jogar',tu_nombre:'Seu nome',idioma:'Idioma',continuar:'Continuar →',verificacion:'Verificação',registrarse:'Registrar',volver:'Voltar',ya_tienes:'Já tem conta?',cambiar:'Trocar de conta',mis_cuentas:'Minhas contas',nueva_cuenta:'+ Nova conta',mi_cuenta:'Minha conta',nivel:'Nível',xp_total:'XP total',vic_civil:'Vitórias como Civil',vic_imp:'Vitórias como Impostor',id_cuenta:'ID da conta',cambiar_cuenta:'🔄 Trocar conta',ranking:'🏆 Ranking',jugar:'🎮 Jogar',avatar_btn:'🎨 Avatar',lang_menu:'Idioma',como_jugar:'Como quer jogar?',unirse_cod:'🔑 Entrar com código',crear_p:'✨ Criar partida',ver_p:'🔍 Ver partidas',unirse_titulo:'Entrar com código',unirse:'Entrar',crear_titulo:'Criar partida',max_jug:'Máximo de jogadores',num_imp:'Impostores',palabras:'Palavras (separadas por vírgula)',partidas:'Partidas disponíveis',actualizar:'Atualizar',sala:'Sala de espera',comparte:'Compartilhe este código com seus amigos',jugadores:'Jogadores',impostores:'Impostores',iniciar:'▶ Iniciar',esperando:'Aguardando o anfitrião...',tu_rol:'Seu papel',no_mostrar:'Não mostre isso a ninguém!',entendido:'Entendido, ir ao chat',proponer:'🗳️ Propor votação',enviar:'Enviar',votacion:'Votação!',vota_para:'Vote para expulsar alguém',continuar_p:'Continuar partida',menu_btn:'Voltar ao menu',discusion:'💬 Discussão',tu_turno:'É a sua vez!',turno_de:'Vez de',impostor:'IMPOSTOR',civil:'CIVIL',civiles_ganan:'Os civis ganharam! 🎉',imp_ganan:'Os impostores vencem! 💀',sigue:'O impostor ainda está entre vocês...',expulsado:'foi expulso',era:'Era',empate:'Empate — ninguém foi expulso',color:'Cor',forma:'Forma',guardar_av:'Salvar avatar',sombrero:'Chapéu',buscando:'Procurando...',no_partidas:'Nenhuma partida disponível',conectado:'Conectado',conectando:'Conectando...',desconectado:'Desconectado',trad_de:'Traduzido do',todos_hablaron:'Todos falaram!',xp_sig:'XP para próximo nível',subiste:'Você subiu ao nível',vot_sub:'Todos falaram! A votação pode começar',ir_votar:'Ir votar →',no_turno:'Não é a sua vez',sin_con:'Sem conexão',al_menos_2:'Precisa de pelo menos 2 jogadores',esc_cod:'Digite um código',av_ok:'Avatar salvo!',nom_corto:'Nome muito curto (mínimo 2)',nom_tomado:'Esse nome já está em uso',cod_mal:'Código incorreto',cod_exp:'Código expirado',baneado:'Você foi banido. Não pode entrar em partidas.',anuncio_placeholder:'Escreva um anúncio global...'},
+en:{crear_cuenta:'Create account',nombre_unico:'Choose a unique name to play',tu_nombre:'Your name',idioma:'Language',continuar:'Continue →',verificacion:'Verification',registrarse:'Register',volver:'Back',ya_tienes:'Already have an account?',cambiar:'Switch account',mis_cuentas:'My accounts',nueva_cuenta:'+ New account',mi_cuenta:'My account',nivel:'Level',xp_total:'Total XP',vic_civil:'Wins as Civilian',vic_imp:'Wins as Impostor',id_cuenta:'Account ID',cambiar_cuenta:'🔄 Switch account',ranking:'🏆 Ranking',jugar:'🎮 Play',avatar_btn:'🎨 Avatar',lang_menu:'Language',como_jugar:'How do you want to play?',unirse_cod:'🔑 Join with code',crear_p:'✨ Create game',ver_p:'🔍 Browse games',unirse_titulo:'Join with code',unirse:'Join',crear_titulo:'Create game',max_jug:'Max players',num_imp:'Impostors',palabras:'Words (comma separated)',partidas:'Available games',actualizar:'Refresh',sala:'Waiting room',comparte:'Share this code with your friends',jugadores:'Players',impostores:'Impostors',iniciar:'▶ Start',esperando:'Waiting for host...',tu_rol:'Your role',no_mostrar:"Don't show this to anyone!",entendido:'Got it, go to chat',proponer:'🗳️ Propose vote',enviar:'Send',votacion:'Vote!',vota_para:'Vote to eliminate someone',continuar_p:'Continue game',menu_btn:'Back to menu',discusion:'💬 Discussion',tu_turno:'Your turn!',turno_de:'Turn of',impostor:'IMPOSTOR',civil:'CIVILIAN',civiles_ganan:'Civilians win! 🎉',imp_ganan:'Impostors win! 💀',sigue:'The impostor is still among you...',expulsado:'was expelled',era:'Was',empate:'Tie — nobody was expelled',color:'Color',forma:'Shape',guardar_av:'Save avatar',sombrero:'Hat',buscando:'Looking...',no_partidas:'No games available',conectado:'Connected',conectando:'Connecting...',desconectado:'Disconnected',trad_de:'Translated from',todos_hablaron:'Everyone spoke!',xp_sig:'XP to next level',subiste:'You leveled up to level',vot_sub:'Everyone spoke! Voting can begin',ir_votar:'Go vote →',no_turno:"Not your turn",sin_con:'No connection',al_menos_2:'You need at least 2 players',esc_cod:'Enter a code',av_ok:'Avatar saved!',nom_corto:'Name too short (min 2)',nom_tomado:'That name is already taken',cod_mal:'Incorrect code',cod_exp:'Code expired',baneado:'You have been banned. You cannot join games.',anuncio_placeholder:'Write a global announcement...'}};
 var LN={es:'Español',pt:'Português',en:'English'};
 var ADMIN_NAME='sarbelotefcb';
 
@@ -354,7 +358,7 @@ var myLevel=parseInt(localStorage.getItem('gg_level')||'1');
 var myXP=parseInt(localStorage.getItem('gg_xp')||'0');
 var myName=localStorage.getItem('gg_name')||'';
 var myUserId=localStorage.getItem('gg_uid')||'';
-var myAvatar=JSON.parse(localStorage.getItem('gg_avatar')||'{"color":"#a78bfa","shape":"circle"}');
+var myAvatar=JSON.parse(localStorage.getItem('gg_avatar')||'{"color":"#a78bfa","shape":"circle","hat":"none"}');
 var myWins={civil:parseInt(localStorage.getItem('gg_wc')||'0'),imp:parseInt(localStorage.getItem('gg_wi')||'0')};
 var myId='p_'+Math.random().toString(36).slice(2,9);
 var regKey='';
@@ -464,8 +468,10 @@ function showLevelUp(lv){
 // ── AVATAR ────────────────────────────────────────────────────────
 var COLORS=['#a78bfa','#ec4899','#f97316','#22d3ee','#4ade80','#facc15','#f87171','#e2e8f0','#818cf8','#fb923c'];
 var SHAPES=['circle','square','triangle'];
+var HATS=['none','copa'];
+var HAT_LABELS={'none':'Sin sombrero','copa':'Sombrero'};
 
-function drawBall(canvas,color,shape,size){
+function drawBall(canvas,color,shape,size,hat){
   size=size||80;canvas.width=size;canvas.height=size;
   var ctx=canvas.getContext('2d');ctx.clearRect(0,0,size,size);ctx.fillStyle=color;
   var c=size/2,r=size*0.42;
@@ -475,23 +481,67 @@ function drawBall(canvas,color,shape,size){
   ctx.fillStyle='rgba(0,0,0,0.28)';
   ctx.beginPath();ctx.arc(c-r*.28,c-r*.1,r*.12,0,Math.PI*2);ctx.fill();
   ctx.beginPath();ctx.arc(c+r*.28,c-r*.1,r*.12,0,Math.PI*2);ctx.fill();
+  if(hat==='copa')drawHatCopa(ctx,c,r,size);
 }
-function renderMenuBall(){drawBall(document.getElementById('menu-ball'),myAvatar.color,myAvatar.shape,90);}
+
+function drawHatCopa(ctx,cx,r,size){
+  // Original drawing was on 500x500 canvas, ball region approx 90-380 x 90-430
+  // Source hat: brim ~y322-380 x~139-325, body x~181-272 y~98-336
+  // We scale and center it above the ball
+  var srcW=500,srcH=500;
+  // Hat bounding box in source coords
+  var hx1=139,hy1=98,hx2=325,hy2=380;
+  var hW=hx2-hx1,hH=hy2-hy1;
+  // Target: hat should be about 0.85*size wide, centered, sitting on top of ball
+  var targetW=size*0.85;
+  var scale=targetW/hW;
+  var targetH=hH*scale;
+  // Center horizontally, place bottom of hat at top of ball (cy - r*1.05)
+  var tx=cx-targetW/2;
+  var ty=(cx-r*1.05)-targetH;
+  ctx.save();
+  ctx.translate(tx-hx1*scale, ty-hy1*scale);
+  ctx.scale(scale,scale);
+  ctx.strokeStyle='#c02626';
+  ctx.lineWidth=10/scale;
+  ctx.lineCap='round';ctx.lineJoin='round';
+  // Brim
+  ctx.beginPath();
+  ctx.moveTo(148,325);ctx.lineTo(148,326);ctx.lineTo(148,328);ctx.lineTo(148,329);ctx.lineTo(148,332);ctx.lineTo(148,336);ctx.lineTo(148,341);ctx.lineTo(148,351);ctx.lineTo(147,355);ctx.lineTo(146,358);ctx.lineTo(146,363);ctx.lineTo(146,365);ctx.lineTo(146,367);ctx.lineTo(145,367);ctx.lineTo(145,368);ctx.lineTo(145,369);ctx.lineTo(145,370);ctx.lineTo(145,371);ctx.lineTo(148,371);ctx.lineTo(151,372);ctx.lineTo(156,372);ctx.lineTo(160,372);ctx.lineTo(169,372);ctx.lineTo(175,372);ctx.lineTo(180,372);ctx.lineTo(187,372);ctx.lineTo(204,372);ctx.lineTo(215,373);ctx.lineTo(226,374);ctx.lineTo(234,375);ctx.lineTo(250,377);ctx.lineTo(260,378);ctx.lineTo(266,378);ctx.lineTo(272,378);ctx.lineTo(277,379);ctx.lineTo(282,379);ctx.lineTo(284,379);ctx.lineTo(287,379);ctx.lineTo(289,379);ctx.lineTo(291,379);ctx.lineTo(293,379);ctx.lineTo(295,379);ctx.lineTo(297,379);ctx.lineTo(299,379);ctx.lineTo(301,379);ctx.lineTo(302,379);ctx.lineTo(305,379);ctx.lineTo(308,379);ctx.lineTo(309,380);ctx.lineTo(310,380);ctx.lineTo(313,380);ctx.lineTo(314,380);ctx.lineTo(315,380);ctx.lineTo(316,376);ctx.lineTo(317,373);ctx.lineTo(319,368);ctx.lineTo(320,364);ctx.lineTo(322,355);ctx.lineTo(323,351);ctx.lineTo(323,346);ctx.lineTo(323,341);ctx.lineTo(324,333);ctx.lineTo(324,330);ctx.lineTo(324,328);ctx.lineTo(324,326);ctx.lineTo(325,324);ctx.lineTo(325,323);ctx.lineTo(325,322);ctx.lineTo(323,322);ctx.lineTo(319,322);ctx.lineTo(313,322);ctx.lineTo(303,322);ctx.lineTo(291,322);ctx.lineTo(263,324);ctx.lineTo(248,327);ctx.lineTo(231,328);ctx.lineTo(214,329);ctx.lineTo(189,330);ctx.lineTo(178,331);ctx.lineTo(170,331);ctx.lineTo(163,331);ctx.lineTo(158,332);ctx.lineTo(148,332);ctx.lineTo(146,332);ctx.lineTo(144,332);ctx.lineTo(142,332);ctx.lineTo(141,332);ctx.lineTo(140,332);ctx.lineTo(139,332);
+  ctx.stroke();ctx.closePath();
+  // Body
+  ctx.beginPath();
+  ctx.moveTo(181,325);ctx.lineTo(181,323);ctx.lineTo(181,322);ctx.lineTo(181,321);ctx.lineTo(181,318);ctx.lineTo(181,317);ctx.lineTo(182,316);ctx.lineTo(182,314);ctx.lineTo(182,313);ctx.lineTo(182,311);ctx.lineTo(182,309);ctx.lineTo(182,308);ctx.lineTo(182,306);ctx.lineTo(182,304);ctx.lineTo(182,302);ctx.lineTo(182,297);ctx.lineTo(182,293);ctx.lineTo(182,290);ctx.lineTo(182,282);ctx.lineTo(182,278);ctx.lineTo(182,272);ctx.lineTo(182,267);ctx.lineTo(183,261);ctx.lineTo(184,248);ctx.lineTo(185,242);ctx.lineTo(186,234);ctx.lineTo(187,227);ctx.lineTo(190,213);ctx.lineTo(192,207);ctx.lineTo(193,200);ctx.lineTo(193,189);ctx.lineTo(194,184);ctx.lineTo(194,180);ctx.lineTo(195,174);ctx.lineTo(196,163);ctx.lineTo(196,156);ctx.lineTo(196,151);ctx.lineTo(196,147);ctx.lineTo(197,141);ctx.lineTo(197,132);ctx.lineTo(197,129);ctx.lineTo(197,126);ctx.lineTo(197,123);ctx.lineTo(197,117);ctx.lineTo(197,114);ctx.lineTo(197,112);ctx.lineTo(197,109);ctx.lineTo(197,108);ctx.lineTo(197,107);ctx.lineTo(198,107);ctx.lineTo(198,106);ctx.lineTo(198,105);ctx.lineTo(199,104);ctx.lineTo(201,104);ctx.lineTo(201,103);ctx.lineTo(203,103);ctx.lineTo(204,103);ctx.lineTo(206,102);ctx.lineTo(208,102);ctx.lineTo(210,102);ctx.lineTo(213,101);ctx.lineTo(215,101);ctx.lineTo(217,100);ctx.lineTo(219,100);ctx.lineTo(225,100);ctx.lineTo(228,100);ctx.lineTo(231,100);ctx.lineTo(234,99);ctx.lineTo(241,99);ctx.lineTo(243,99);ctx.lineTo(245,99);ctx.lineTo(246,99);ctx.lineTo(251,98);ctx.lineTo(253,98);ctx.lineTo(254,98);ctx.lineTo(255,98);ctx.lineTo(258,98);ctx.lineTo(259,99);ctx.lineTo(259,102);ctx.lineTo(260,107);ctx.lineTo(260,110);ctx.lineTo(261,113);ctx.lineTo(261,116);ctx.lineTo(261,120);ctx.lineTo(262,129);ctx.lineTo(262,133);ctx.lineTo(263,138);ctx.lineTo(263,144);ctx.lineTo(264,155);ctx.lineTo(265,161);ctx.lineTo(265,165);ctx.lineTo(266,170);ctx.lineTo(266,179);ctx.lineTo(267,183);ctx.lineTo(267,187);ctx.lineTo(268,197);ctx.lineTo(268,201);ctx.lineTo(268,205);ctx.lineTo(268,209);ctx.lineTo(269,219);ctx.lineTo(269,223);ctx.lineTo(269,226);ctx.lineTo(269,231);ctx.lineTo(270,242);ctx.lineTo(270,248);ctx.lineTo(270,254);ctx.lineTo(271,261);ctx.lineTo(271,272);ctx.lineTo(272,279);ctx.lineTo(272,284);ctx.lineTo(272,290);ctx.lineTo(272,295);ctx.lineTo(272,306);ctx.lineTo(272,310);ctx.lineTo(272,316);ctx.lineTo(272,323);ctx.lineTo(272,326);ctx.lineTo(272,328);ctx.lineTo(272,329);ctx.lineTo(272,332);ctx.lineTo(272,333);ctx.lineTo(272,334);ctx.lineTo(272,335);ctx.lineTo(272,336);
+  ctx.stroke();ctx.closePath();
+  ctx.restore();
+}
+function renderMenuBall(){drawBall(document.getElementById('menu-ball'),myAvatar.color,myAvatar.shape,90,myAvatar.hat||'none');}
 function initAvatar(){
   var cr=document.getElementById('color-row');cr.innerHTML='';
   COLORS.forEach(function(c){
     var el=document.createElement('div');el.className='swatch'+(c===myAvatar.color?' sel':'');el.style.background=c;
-    el.onclick=function(){myAvatar.color=c;document.querySelectorAll('.swatch').forEach(function(x){x.classList.remove('sel');});el.classList.add('sel');drawBall(document.getElementById('av-canvas'),myAvatar.color,myAvatar.shape,120);};
+    el.onclick=function(){myAvatar.color=c;document.querySelectorAll('.swatch').forEach(function(x){x.classList.remove('sel');});el.classList.add('sel');drawBall(document.getElementById('av-canvas'),myAvatar.color,myAvatar.shape,120,myAvatar.hat||'none');};
     cr.appendChild(el);
   });
   var sr=document.getElementById('shape-row');sr.innerHTML='';
   SHAPES.forEach(function(sh){
     var d=document.createElement('div');d.className='shape-opt'+(sh===myAvatar.shape?' sel':'');
-    var mini=document.createElement('canvas');drawBall(mini,myAvatar.color,sh,40);d.appendChild(mini);
-    d.onclick=function(){myAvatar.shape=sh;document.querySelectorAll('.shape-opt').forEach(function(x){x.classList.remove('sel');});d.classList.add('sel');drawBall(document.getElementById('av-canvas'),myAvatar.color,myAvatar.shape,120);initAvatar();};
+    var mini=document.createElement('canvas');drawBall(mini,myAvatar.color,sh,40,myAvatar.hat||'none');d.appendChild(mini);
+    d.onclick=function(){myAvatar.shape=sh;document.querySelectorAll('.shape-opt').forEach(function(x){x.classList.remove('sel');});d.classList.add('sel');drawBall(document.getElementById('av-canvas'),myAvatar.color,myAvatar.shape,120,myAvatar.hat||'none');initAvatar();};
     sr.appendChild(d);
   });
-  drawBall(document.getElementById('av-canvas'),myAvatar.color,myAvatar.shape,120);
+  // Hat row
+  var hr=document.getElementById('hat-row');hr.innerHTML='';
+  HATS.forEach(function(ht){
+    var d=document.createElement('div');d.className='hat-opt'+(( myAvatar.hat||'none')===ht?' sel':'');
+    var mini=document.createElement('canvas');drawBall(mini,myAvatar.color,myAvatar.shape,40,ht);d.appendChild(mini);
+    var lbl=document.createElement('div');lbl.style.cssText='font-size:.58rem;color:var(--muted);margin-top:2px;text-align:center;';lbl.textContent=HAT_LABELS[ht]||ht;
+    var wrap=document.createElement('div');wrap.style.cssText='display:flex;flex-direction:column;align-items:center;';
+    wrap.appendChild(d);wrap.appendChild(lbl);
+    wrap.onclick=(function(h){return function(){myAvatar.hat=h;document.querySelectorAll('.hat-opt').forEach(function(x){x.classList.remove('sel');});d.classList.add('sel');drawBall(document.getElementById('av-canvas'),myAvatar.color,myAvatar.shape,120,h);};})(ht);
+    hr.appendChild(wrap);
+  });
+  drawBall(document.getElementById('av-canvas'),myAvatar.color,myAvatar.shape,120,myAvatar.hat||'none');
 }
 function guardarAvatar(){
   localStorage.setItem('gg_avatar',JSON.stringify(myAvatar));
@@ -530,7 +580,7 @@ function applyLang(){
   document.getElementById('btn-proponer').textContent=t('proponer');document.getElementById('btn-enviar').textContent=t('enviar');
   set('h-voto','votacion');set('voto-hint','vota_para');
   document.getElementById('btn-continuar').textContent=t('continuar_p');document.getElementById('btn-menu').textContent=t('menu_btn');
-  set('h-avatar','avatar_btn');set('h-color','color');set('h-forma','forma');
+  set('h-avatar','avatar_btn');set('h-color','color');set('h-forma','forma');if(document.getElementById('h-sombrero'))document.getElementById('h-sombrero').textContent=(TXT[myLang]||TXT.es)['sombrero']||'Sombrero';
   document.getElementById('btn-save-av').textContent=t('guardar_av');
   set('vot-sub','vot_sub');document.getElementById('btn-ir-voto').textContent=t('ir_votar');
   document.querySelectorAll('.bl').forEach(function(el){el.textContent=t('volver');});
@@ -548,7 +598,7 @@ function applyLang(){
   document.getElementById('av-xp').textContent=myXP;
   document.getElementById('av-wc').textContent=myWins.civil;
   document.getElementById('av-wi').textContent=myWins.imp;
-  drawBall(document.getElementById('acct-ball'),myAvatar.color,myAvatar.shape,70);
+  drawBall(document.getElementById('acct-ball'),myAvatar.color,myAvatar.shape,70,myAvatar.hat||'none');
 }
 
 // ── NAV ───────────────────────────────────────────────────────────
@@ -769,7 +819,7 @@ function renderSalaPlayers(room){
   var cont=document.getElementById('sala-players');cont.innerHTML='';
   keys.forEach(function(id){
     var p=players[id];var div=document.createElement('div');div.className='player-item';
-    var ball=document.createElement('canvas');drawBall(ball,p.avatar.color,p.avatar.shape,32);div.appendChild(ball);
+    var ball=document.createElement('canvas');drawBall(ball,p.avatar.color,p.avatar.shape,32,p.avatar.hat||'none');div.appendChild(ball);
     var info=document.createElement('div');info.style.flex='1';
     var row=document.createElement('div');row.style.cssText='display:flex;align-items:center;gap:5px';
     var nm=document.createElement('span');nm.className='player-name';nm.textContent=p.name;row.appendChild(nm);
@@ -856,7 +906,7 @@ function abrirVotacion(players){
     if(id===myId)return;
     var p=players[id];
     var btn=document.createElement('div');btn.className='vote-btn';btn.id='vb_'+id;
-    var ball=document.createElement('canvas');drawBall(ball,p.avatar.color,p.avatar.shape,44);btn.appendChild(ball);
+    var ball=document.createElement('canvas');drawBall(ball,p.avatar.color,p.avatar.shape,44,p.avatar.hat||'none');btn.appendChild(ball);
     var nm=document.createElement('div');nm.className='vname';nm.textContent=escH(p.name);btn.appendChild(nm);
     var lv=document.createElement('div');lv.style.cssText='font-size:.68rem;color:var(--gold);margin-top:2px';lv.textContent='Lv.'+(p.level||1);btn.appendChild(lv);
     var cnt=document.createElement('div');cnt.className='vcount';cnt.id='vc_'+id;cnt.textContent='0 votos';btn.appendChild(cnt);
